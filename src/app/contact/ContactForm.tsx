@@ -84,7 +84,7 @@ export function ContactForm() {
         Send message
       </button>
 
-      <p className="mt-4 text-xs text-taupe">
+      <p className="mt-4 text-xs text-ink-muted">
         This opens your own email app so you can review the message before
         sending.
       </p>

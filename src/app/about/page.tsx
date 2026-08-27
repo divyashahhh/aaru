@@ -103,9 +103,12 @@ export default function About() {
       <Section>
         <div className="mx-auto max-w-2xl">
           <Reveal>
-            <Eyebrow>Who this is for</Eyebrow>
+            <Eyebrow>A note on asking for help</Eyebrow>
+            <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-4xl">
+              Who this is for
+            </h2>
           </Reveal>
-          <div className="mt-6 space-y-6">
+          <div className="mt-8 space-y-6">
             {whoThisIsFor.map((paragraph, i) => (
               <Reveal key={i} delay={i * 100}>
                 <p className="text-base leading-relaxed text-ink-muted">

@@ -34,12 +34,15 @@ export default function Contact() {
         <div className="grid gap-16 md:grid-cols-2">
           <ContactForm />
 
-          <div>
+          <div className="h-fit rounded-lg border border-taupe/25 bg-shell p-8">
             <h2 className="font-display text-2xl text-ink">Directly</h2>
-            <p className="mt-4 text-base text-ink-muted">{site.email}</p>
-            <p className="mt-1 text-base text-ink-muted">{site.phone}</p>
+            <p className="mt-4 text-base text-ink">{site.email}</p>
+            <p className="mt-1 text-base text-ink">{site.phone}</p>
             <p className="mt-6 text-sm leading-relaxed text-ink-muted">
               {site.modality}. I usually reply within [two working days].
+            </p>
+            <p className="subtitle mt-8 text-xs uppercase tracking-[0.1em]">
+              Confidential &amp; BACP registered
             </p>
           </div>
         </div>

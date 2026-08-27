@@ -5,6 +5,7 @@ import {
   closing,
   hero,
   heroPhrases,
+  languages,
   multilingualTeaser,
   process,
 } from "@/content/site";
@@ -62,7 +63,7 @@ export default function Home() {
             </div>
 
             <div
-              className="a-rise mt-12 flex flex-wrap gap-x-10 gap-y-3 text-xs uppercase tracking-[0.16em] text-antique"
+              className="a-rise mt-12 flex flex-wrap gap-x-10 gap-y-3 text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted"
               style={{ animationDelay: "480ms" }}
             >
               {heroPhrases.map((phrase) => (
@@ -131,12 +132,30 @@ export default function Home() {
 
       {/* ---------- Multilingual therapy ---------- */}
       <Section className="bg-linen">
-        <Reveal direction="scale">
-          <Eyebrow>Multilingual Therapy</Eyebrow>
-          <h2 className="mt-4 max-w-xl font-display text-3xl leading-snug text-raisin md:text-4xl">
-            {multilingualTeaser}
-          </h2>
-        </Reveal>
+        <div className="grid items-center gap-12 md:grid-cols-[1.2fr_1fr]">
+          <Reveal direction="left">
+            <Eyebrow>Multilingual Therapy</Eyebrow>
+            <h2 className="mt-4 max-w-lg font-display text-3xl leading-snug text-raisin md:text-4xl">
+              {multilingualTeaser}
+            </h2>
+          </Reveal>
+          <Reveal
+            direction="right"
+            delay={120}
+            className="grid grid-cols-3 gap-3 md:grid-cols-1"
+          >
+            {languages.map((lang) => (
+              <div
+                key={lang}
+                className="rounded-lg border border-antique/30 bg-cream px-6 py-5 text-center md:text-left"
+              >
+                <span className="font-display text-xl text-coffee">
+                  {lang}
+                </span>
+              </div>
+            ))}
+          </Reveal>
+        </div>
       </Section>
 
       {/* ---------- Areas I work with ---------- */}

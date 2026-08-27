@@ -58,6 +58,8 @@ export const heroPhrases = [
 export const multilingualTeaser =
   "Offering services in English, Hindi/Urdu and Gujarati";
 
+export const languages = ["English", "Hindi/Urdu", "Gujarati"];
+
 export const areasIWorkWith = [
   "Anxiety & Depression",
   "Childhood Trauma",

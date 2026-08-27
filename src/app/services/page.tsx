@@ -41,7 +41,7 @@ export default function Services() {
             <a
               key={item.href}
               href={item.href}
-              className="text-xs uppercase tracking-[0.16em] text-taupe transition-colors hover:text-sage-deep"
+              className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted transition-colors hover:text-coffee"
             >
               {item.label}
             </a>
@@ -53,7 +53,10 @@ export default function Services() {
       <Section id="for-whom">
         <Reveal>
           <Eyebrow>For whom?</Eyebrow>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-ink">
+          <h2 className="mt-4 max-w-lg font-display text-3xl leading-snug text-raisin md:text-4xl">
+            Who I work with
+          </h2>
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink">
             {forWhomIntro}
           </p>
         </Reveal>
@@ -70,7 +73,7 @@ export default function Services() {
                 {group.paragraphs.map((paragraph, j) => (
                   <p
                     key={j}
-                    className="text-sm leading-relaxed text-ink-muted"
+                    className="text-base leading-relaxed text-ink-muted"
                   >
                     {paragraph}
                   </p>
@@ -85,6 +88,9 @@ export default function Services() {
       <Section id="areas-of-interest" className="bg-sand/40">
         <Reveal>
           <Eyebrow>Particular areas of interest</Eyebrow>
+          <h2 className="mt-4 max-w-lg font-display text-3xl leading-snug text-raisin md:text-4xl">
+            Where I have particular experience
+          </h2>
         </Reveal>
 
         <div className="mt-12 divide-y divide-taupe/20">
@@ -99,7 +105,7 @@ export default function Services() {
                   {area.title}
                 </h3>
                 {area.subtitle ? (
-                  <p className="mt-2 text-xs uppercase tracking-[0.14em] text-taupe">
+                  <p className="subtitle mt-2 text-xs uppercase tracking-[0.1em]">
                     {area.subtitle}
                   </p>
                 ) : null}
@@ -123,7 +129,10 @@ export default function Services() {
       <Section id="fees">
         <Reveal>
           <Eyebrow>Fees</Eyebrow>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-muted">
+          <h2 className="mt-4 max-w-lg font-display text-3xl leading-snug text-raisin md:text-4xl">
+            What sessions cost
+          </h2>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-muted">
             {feesIntro}
           </p>
         </Reveal>
@@ -149,7 +158,10 @@ export default function Services() {
       {/* ---------- Ethics, Confidentiality & Your Privacy ---------- */}
       <Section className="bg-linen">
         <Reveal>
-          <Eyebrow>{ethics.title}</Eyebrow>
+          <Eyebrow>Ethics &amp; Privacy</Eyebrow>
+          <h2 className="mt-4 max-w-lg font-display text-3xl leading-snug text-raisin md:text-4xl">
+            {ethics.title}
+          </h2>
         </Reveal>
         <div className="mt-8 max-w-2xl space-y-5">
           {ethics.paragraphs.map((paragraph, i) => (
