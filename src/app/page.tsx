@@ -1,69 +1,209 @@
-import Image from "next/image";
+import { Reveal } from "@/components/Reveal";
+import { Button, Eyebrow, Photo, Section } from "@/components/ui";
+import {
+  areasIWorkWith,
+  closing,
+  hero,
+  heroPhrases,
+  multilingualTeaser,
+  process,
+} from "@/content/site";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main>
+      {/* ---------- Hero ---------- */}
+      <div className="relative overflow-hidden bg-salt">
+        {/* Drifting colour blooms */}
+        <div
+          aria-hidden
+          className="a-bloom absolute -left-24 -top-32 h-[28rem] w-[28rem] rounded-full bg-ember/50"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+        <div
+          aria-hidden
+          className="a-bloom absolute -right-20 top-10 h-[32rem] w-[32rem] rounded-full bg-mist/60"
+          style={{ animationDelay: "-5s" }}
+        />
+        <div
+          aria-hidden
+          className="a-bloom absolute bottom-[-12rem] left-1/3 h-[30rem] w-[30rem] rounded-full bg-clay/40"
+          style={{ animationDelay: "-9s" }}
+        />
+
+        <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-6 py-24 md:px-12 lg:grid-cols-[1.1fr_0.9fr] lg:px-20 lg:py-28">
+          <div>
+            <span className="a-rise inline-flex items-center gap-2 rounded-full border border-olive/25 bg-salt/70 px-4 py-1.5 text-[11px] uppercase tracking-[0.18em] text-olive backdrop-blur">
+              <span className="h-1.5 w-1.5 rounded-full bg-coffee" />
+              Now accepting new clients
+            </span>
+
+            <h1
+              className="a-rise mt-7 font-display text-5xl leading-[1.08] text-raisin md:text-6xl lg:text-7xl"
+              style={{ animationDelay: "120ms" }}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              {hero.headline}
+            </h1>
+
+            <p
+              className="a-rise mt-7 max-w-md text-lg leading-relaxed text-ink-muted"
+              style={{ animationDelay: "240ms" }}
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+              {hero.subtext}
+            </p>
+
+            <div
+              className="a-rise mt-10 flex flex-wrap items-center gap-4"
+              style={{ animationDelay: "360ms" }}
+            >
+              <Button href="/contact">Book a free consultation</Button>
+              <Button href="/services" variant="outline">
+                See how I can help
+              </Button>
+            </div>
+
+            <div
+              className="a-rise mt-12 flex flex-wrap gap-x-10 gap-y-3 text-xs uppercase tracking-[0.16em] text-antique"
+              style={{ animationDelay: "480ms" }}
+            >
+              {heroPhrases.map((phrase) => (
+                <span key={phrase}>{phrase}</span>
+              ))}
+            </div>
+          </div>
+
+          {/* Floating arch collage */}
+          <div className="relative h-[30rem]">
+            <div className="a-drift absolute right-0 top-0 h-[24rem] w-[17rem]">
+              <Photo arch className="h-full w-full" label="The therapy room" />
+            </div>
+            <div
+              className="a-drift absolute bottom-0 left-0 h-[15rem] w-[13rem]"
+              style={{ animationDelay: "-4s" }}
+            >
+              <Photo tone="deep" className="h-full w-full" label="Detail" />
+            </div>
+            <div
+              aria-hidden
+              className="a-drift absolute bottom-24 right-8 h-20 w-20 rounded-full bg-coffee/80"
+              style={{ animationDelay: "-2s" }}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+
+      {/* ---------- Welcome ---------- */}
+      <Section>
+        <div className="grid items-center gap-16 md:grid-cols-2">
+          <Reveal direction="left">
+            <Eyebrow>Welcome</Eyebrow>
+            <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-4xl">
+              Find your path to <em className="italic text-coffee">healing</em>{" "}
+              and connection
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-ink-muted">
+              Life can feel overwhelming, and reaching out for help takes
+              courage. My work is with individuals navigating anxiety, grief,
+              difficult experiences and the periods of change that leave you
+              unsure of your footing.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-ink-muted">
+              Together we explore what you are carrying, without rush and
+              without judgement, so you can engage with your life with renewed
+              purpose.
+            </p>
+            <div className="mt-8">
+              <Button href="/about" variant="outline">
+                More about me
+              </Button>
+            </div>
+          </Reveal>
+
+          <Reveal direction="right" delay={120}>
+            <Photo
+              arch
+              tone="olive"
+              className="h-[26rem]"
+              label="Portrait / calm interior"
+            />
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* ---------- Multilingual therapy ---------- */}
+      <Section className="bg-linen">
+        <Reveal direction="scale">
+          <Eyebrow>Multilingual Therapy</Eyebrow>
+          <h2 className="mt-4 max-w-xl font-display text-3xl leading-snug text-raisin md:text-4xl">
+            {multilingualTeaser}
+          </h2>
+        </Reveal>
+      </Section>
+
+      {/* ---------- Areas I work with ---------- */}
+      <Section>
+        <Reveal>
+          <Eyebrow>How I can help</Eyebrow>
+          <h2 className="mt-4 max-w-xl font-display text-3xl leading-snug text-raisin md:text-4xl">
+            Areas I work with most often
+          </h2>
+        </Reveal>
+        <Reveal delay={120} className="mt-12">
+          <ul className="grid gap-x-10 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
+            {areasIWorkWith.map((area) => (
+              <li
+                key={area}
+                className="flex items-baseline gap-3 text-base text-ink-muted"
+              >
+                <span className="h-1.5 w-1.5 shrink-0 translate-y-[-2px] rounded-full bg-coffee" />
+                {area}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+        <Reveal delay={200} className="mt-14">
+          <Button href="/services" variant="outline">
+            All services
+          </Button>
+        </Reveal>
+      </Section>
+
+      {/* ---------- Process ---------- */}
+      <Section className="bg-noir text-salt">
+        <Reveal>
+          <p className="text-xs uppercase tracking-[0.18em] text-mist">
+            What to expect
+          </p>
+          <h2 className="mt-4 font-display text-3xl leading-snug md:text-4xl">
+            Starting is simpler than it feels
+          </h2>
+        </Reveal>
+        <div className="mt-14 grid gap-10 md:grid-cols-3">
+          {process.map((p, i) => (
+            <Reveal key={p.n} delay={i * 130}>
+              <span className="font-display text-3xl text-ember">{p.n}</span>
+              <h3 className="mt-3 font-display text-2xl">{p.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-salt/70">
+                {p.body}
+              </p>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      {/* ---------- Closing CTA ---------- */}
+      <Section className="bg-gradient-to-br from-parchment via-shell to-mist/70 text-center">
+        <Reveal>
+          <h2 className="mx-auto max-w-xl font-display text-3xl leading-snug text-raisin md:text-4xl">
+            When you are ready, I am here
+          </h2>
+          <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-ink-muted">
+            {closing}
+          </p>
+          <div className="mt-10">
+            <Button href="/contact">Get in touch</Button>
+          </div>
+        </Reveal>
+      </Section>
+    </main>
   );
 }

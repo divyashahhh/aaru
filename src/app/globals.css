@@ -1,26 +1,158 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+  Palette: SALT / ANTIQUE / COFFEE / OLIVE LEAF / NOIR / RAISIN BLACK,
+  plus a few derived tints for gradients and depth.
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  The semantic names (cream, sage, ink…) are mapped onto this palette so the
+  whole site re-skins from one place.
+*/
+@theme {
+  /* Named palette */
+  --color-salt: #f1ebe4;
+  --color-antique: #87826e;
+  --color-coffee: #734e30;
+  --color-olive: #464831;
+  --color-noir: #2e2f23;
+  --color-raisin: #22231a;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Derived tints, for gradients and warmth */
+  --color-clay: #a87246;
+  --color-ember: #c08a55;
+  --color-mist: #b5b09a;
+  --color-linen: #e7dfd4;
+  --color-parchment: #dcd1c1;
+
+  /* Semantic mapping */
+  --color-cream: #f1ebe4;
+  --color-shell: #e7dfd4;
+  --color-sage: #464831;
+  --color-sage-deep: #2e2f23;
+  --color-terracotta: #734e30;
+  --color-sand: #dcd1c1;
+  --color-taupe: #87826e;
+  --color-ink: #22231a;
+  --color-ink-muted: #5a5647;
+  /* A darker label tone — for small/uppercase text that needs to stay legible,
+     on both light and dark backgrounds, instead of the very muted antique. */
+  --color-label: #4a3f2f;
+  --color-label-on-dark: #e4dccb;
+
+  --font-display: var(--font-eb-garamond), Georgia, serif;
+  --font-sans: var(--font-work-sans), system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-label);
+}
+
+.eyebrow-on-dark {
+  color: var(--color-label-on-dark);
+}
+
+/* Sits between an eyebrow and a heading, or under a heading as a secondary
+   line — darker and heavier than muted body copy so it reads as its own
+   tier rather than fading into either neighbour. */
+.subtitle {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--color-coffee);
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Motion ---------- */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -22px, 0) scale(1.04);
+  }
+}
+
+@keyframes bloom {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: translate3d(3%, -4%, 0) scale(1.15);
+  }
+}
+
+/* Entrance used directly (hero, above the fold) */
+.a-rise {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.a-drift {
+  animation: drift 9s ease-in-out infinite;
+}
+
+/* Soft colour blobs behind the hero */
+.a-bloom {
+  animation: bloom 14s ease-in-out infinite;
+  filter: blur(60px);
+}
+
+/* Scroll-revealed elements: hidden until <Reveal> marks them visible */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-left {
+  transform: translateX(-32px);
+}
+.reveal-right {
+  transform: translateX(32px);
+}
+.reveal-scale {
+  transform: scale(0.94);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .a-rise,
+  .a-drift,
+  .a-bloom {
+    animation: none !important;
+  }
+  .reveal,
+  .timeline-rule {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
