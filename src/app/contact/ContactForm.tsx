@@ -17,7 +17,7 @@ export function ContactForm() {
   const mailto = `mailto:${site.email}?subject=${encodeURIComponent(
     `Enquiry from ${name || "the website"}`,
   )}&body=${encodeURIComponent(
-    `${message}\n\n—\n${name}\n${email}`,
+    `${message}\n\n${name}\n${email}`,
   )}`;
 
   const field =
@@ -73,13 +73,13 @@ export function ContactForm() {
         />
         <p className="mt-2 text-xs leading-relaxed text-ink-muted">
           A sentence or two is plenty. Please don&rsquo;t include sensitive
-          personal or medical detail — we can cover that safely in conversation.
+          personal or medical detail; we can cover that safely in conversation.
         </p>
       </div>
 
       <button
         type="submit"
-        className="mt-8 rounded-full bg-sage px-8 py-3 text-xs uppercase tracking-[0.18em] text-cream transition-colors hover:bg-sage-deep"
+        className="mt-8 rounded-full bg-sage px-8 py-3 text-xs uppercase tracking-[0.18em] text-cream transition-all duration-200 hover:-translate-y-0.5 hover:bg-sage-deep hover:shadow-md active:translate-y-0"
       >
         Send message
       </button>

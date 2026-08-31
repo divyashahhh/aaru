@@ -41,7 +41,7 @@ export function Button({
   variant?: "solid" | "outline";
 }) {
   const base =
-    "inline-block rounded-full px-8 py-3 text-xs uppercase tracking-[0.18em] transition-colors";
+    "inline-block rounded-full px-8 py-3 text-xs uppercase tracking-[0.18em] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md active:translate-y-0 active:shadow-none";
   const styles =
     variant === "solid"
       ? "bg-sage text-cream hover:bg-sage-deep"

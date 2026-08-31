@@ -4,7 +4,7 @@ import { contactHeading, site } from "@/content/site";
 import { ContactForm } from "./ContactForm";
 
 export const metadata: Metadata = {
-  title: `Contact — ${site.practice}`,
+  title: `Contact | ${site.practice}`,
   description: "Get in touch to arrange a free introductory conversation.",
 };
 
@@ -20,7 +20,7 @@ export default function Contact() {
         <div className="mt-8 flex flex-wrap items-center gap-5">
           <a
             href={site.calendlyUrl}
-            className="inline-block rounded-full bg-sage px-8 py-3 text-xs uppercase tracking-[0.18em] text-cream transition-colors hover:bg-sage-deep"
+            className="inline-block rounded-full bg-sage px-8 py-3 text-xs uppercase tracking-[0.18em] text-cream transition-all duration-200 hover:-translate-y-0.5 hover:bg-sage-deep hover:shadow-md active:translate-y-0"
           >
             Book via Calendly
           </a>

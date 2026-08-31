@@ -11,7 +11,7 @@ import {
 } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: `About — ${site.practice}`,
+  title: `About | ${site.practice}`,
   description: "About the practitioner, training and therapeutic approach.",
 };
 
@@ -51,7 +51,7 @@ export default function About() {
             className="a-rise mt-10 h-[22rem] max-w-sm"
             style={{ animationDelay: "380ms" }}
           >
-            <Photo arch tone="warm" className="h-full w-full" label="Headshot — photo pending" />
+            <Photo arch tone="warm" className="h-full w-full" label="Headshot photo pending" />
           </div>
         </div>
       </div>
@@ -85,9 +85,13 @@ export default function About() {
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-12 md:grid-cols-3">
+        <div className="mt-14 grid gap-8 md:grid-cols-3">
           {sessionsFeel.map((part, i) => (
-            <Reveal key={part.title} delay={i * 130}>
+            <Reveal
+              key={part.title}
+              delay={i * 130}
+              className="rounded-lg border border-taupe/25 bg-cream p-7 transition-all duration-200 hover:-translate-y-1 hover:border-coffee/40 hover:shadow-lg"
+            >
               <h3 className="font-display text-2xl text-raisin">
                 {part.title}
               </h3>

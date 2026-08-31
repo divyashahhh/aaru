@@ -68,7 +68,7 @@ export function SiteFooter() {
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-salt/15 pt-5">
           <p className="text-[11px] text-salt/70">
             In crisis or need urgent help? This site isn&rsquo;t the right
-            place — please contact your local emergency services.
+            place. Please contact your local emergency services.
           </p>
           <p className="text-[11px] text-salt/60">
             © {new Date().getFullYear()} {site.practice}

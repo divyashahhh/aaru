@@ -63,11 +63,16 @@ export default function Home() {
             </div>
 
             <div
-              className="a-rise mt-12 flex flex-wrap gap-x-10 gap-y-3 text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted"
+              className="a-rise mt-12 flex flex-wrap gap-2.5"
               style={{ animationDelay: "480ms" }}
             >
               {heroPhrases.map((phrase) => (
-                <span key={phrase}>{phrase}</span>
+                <span
+                  key={phrase}
+                  className="rounded-full border border-antique/35 bg-salt/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-ink-muted backdrop-blur"
+                >
+                  {phrase}
+                </span>
               ))}
             </div>
           </div>
@@ -142,17 +147,12 @@ export default function Home() {
           <Reveal
             direction="right"
             delay={120}
-            className="grid grid-cols-3 gap-3 md:grid-cols-1"
+            className="flex flex-col items-center gap-3 text-center md:items-start md:text-left"
           >
             {languages.map((lang) => (
-              <div
-                key={lang}
-                className="rounded-lg border border-antique/30 bg-cream px-6 py-5 text-center md:text-left"
-              >
-                <span className="font-display text-xl text-coffee">
-                  {lang}
-                </span>
-              </div>
+              <span key={lang} className="font-display text-3xl text-coffee md:text-4xl">
+                {lang}
+              </span>
             ))}
           </Reveal>
         </div>

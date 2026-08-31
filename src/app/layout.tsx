@@ -16,7 +16,7 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: `${site.practice} — ${site.discipline} in ${site.location}`,
+  title: `${site.practice} | ${site.discipline} in ${site.location}`,
   description:
     "Psychodynamic therapy for adolescents and adults from all backgrounds, offered online and in person.",
 };

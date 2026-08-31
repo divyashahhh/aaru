@@ -52,7 +52,7 @@ export const hero = {
 export const heroPhrases = [
   "50-minute sessions",
   "In-person in London",
-  "Online internationally where possible",
+  "Online internationally",
 ];
 
 export const multilingualTeaser =
@@ -102,7 +102,7 @@ export const aboutOpening = {
 
 export const journeyParagraphs = [
   "I was born in India and grew up in Singapore, surrounded by different cultures, languages and ways of seeing the world.",
-  "Growing up between cultures made me curious about what it means to belong — and about the often complicated task of holding on to parts of where we come from while also becoming our own person.",
+  "Growing up between cultures made me curious about what it means to belong, and about the often complicated task of holding on to parts of where we come from while also becoming our own person.",
   "Over time, I became increasingly interested in the forces that shape us: family expectations, gender roles, cultural and religious values, intergenerational patterns, relationships and the rapidly changing world around us. I was particularly drawn to the tensions that can arise between what we feel we owe others and what we want for ourselves.",
   "My own experience of therapy showed me how powerful it can be to have a space where anger, sadness, uncertainty and contradiction do not need to be justified. What stayed with me most was not having someone provide the right answers, but being met with warmth, curiosity and a genuine interest in understanding my experience.",
   "That continues to shape how I work today. I believe most of us are simply trying to make sense of our experiences; sometimes we just need the right relationship and enough space to begin speaking about them.",
@@ -111,7 +111,7 @@ export const journeyParagraphs = [
 export const sessionsFeel = [
   {
     title: "Psychodynamic",
-    body: "I mainly work psychodynamically, which means we pay attention to how your past may still be showing up in the present — in your relationships, your expectations of yourself, the roles you fall into, and the feelings that seem to repeat. This does not mean everything is blamed on childhood. It means becoming curious about patterns that may have made sense once, but no longer serve you in the same way.",
+    body: "I mainly work psychodynamically, which means we pay attention to how your past may still be showing up in the present: in your relationships, your expectations of yourself, the roles you fall into, and the feelings that seem to repeat. This does not mean everything is blamed on childhood. It means becoming curious about patterns that may have made sense once, but no longer serve you in the same way.",
   },
   {
     title: "Relational",
@@ -124,7 +124,7 @@ export const sessionsFeel = [
 ];
 
 export const whoThisIsFor = [
-  "For some people, asking for help can bring up shame. You may feel like nothing is \"wrong enough\" to justify therapy, worry about what others would think if they knew, or feel guilty for talking to someone outside your family about things you were taught to keep private. At its simplest, it is a human conversation — a place to be listened to, understood and taken seriously.",
+  "For some people, asking for help can bring up shame. You may feel like nothing is \"wrong enough\" to justify therapy, worry about what others would think if they knew, or feel guilty for talking to someone outside your family about things you were taught to keep private. At its simplest, it is a human conversation: a place to be listened to, understood and taken seriously.",
   "Therapy with me may not be the right fit for everyone. But if you are looking for someone you do not have to defend or explain yourself to, who will take your background, relationships and culture seriously, and who can offer a warm space to explore your experiences and understand yourself more deeply, you are very welcome to get in touch.",
 ];
 
@@ -144,7 +144,7 @@ export const forWhom = [
     title: "For Adolescents",
     paragraphs: [
       "Being a teenager can be confusing and intense. You are changing quickly, figuring out who you are, becoming more independent, and trying to make sense of friendships, family, school, your body, your confidence and where you fit.",
-      "Things like peer pressure, academic stress, loneliness, low self-esteem, conflict at home, grief, trauma or simply feeling lost can all become overwhelming. These experiences do not mean there is something wrong with you — they are often part of coming into your own, especially when life feels complicated.",
+      "Things like peer pressure, academic stress, loneliness, low self-esteem, conflict at home, grief, trauma or simply feeling lost can all become overwhelming. These experiences do not mean there is something wrong with you; they are often part of coming into your own, especially when life feels complicated.",
       "Therapy can offer a private space to talk about what is happening without feeling judged, rushed or told what you should be feeling. You do not need to have everything worked out before you come. We can figure things out together, at your pace.",
     ],
   },
@@ -162,6 +162,7 @@ export const areasOfInterest = [
   {
     title: "Multilingual Therapy",
     subtitle: "In English, Hindi/Urdu, Gujarati",
+    featured: true,
     paragraphs: [
       "There can be something immediately reassuring about hearing your own language in the therapy room. Sometimes, a little of the anxiety drops before the conversation has even properly begun.",
       "Certain feelings, memories, jokes, family dynamics and ways of expressing yourself do not translate neatly into English. In multilingual therapy, you do not have to constantly search for the \"right\" English word, explain the cultural meaning behind what you are saying, or monitor how your words might be understood.",
@@ -173,7 +174,7 @@ export const areasOfInterest = [
     paragraphs: [
       "Changes in our bodies can affect far more than our physical health. PMS, PCOS, endometriosis, pregnancy and the postpartum period, maternal mental health, fertility experiences and menopause can overlap with changes in mood, identity, relationships, confidence and how at home you feel in your own body.",
       "There is still far too little space for women to talk openly about these experiences without being undermined or accused of exaggerating. Symptoms can be confusing, difficult to separate from one another, and sometimes minimised or misunderstood by the people around you. You may even find yourself questioning whether what you are feeling is \"real enough\" to deserve support.",
-      "I do not provide medical diagnosis or treatment. What I can offer is a space to make sense of what is happening emotionally alongside what is happening physically — to talk about anger, grief, fear, exhaustion, changes in sexuality or identity, resentment, uncertainty, or anything else that may come with it.",
+      "I do not provide medical diagnosis or treatment. What I can offer is a space to make sense of what is happening emotionally alongside what is happening physically: to talk about anger, grief, fear, exhaustion, changes in sexuality or identity, resentment, uncertainty, or anything else that may come with it.",
       "You do not need to make your experience smaller or easier for someone else to understand. Therapy can be a place where your experience is taken seriously, where you can hear yourself more clearly, and where you do not have to feel overpowered or silenced.",
     ],
   },
@@ -193,10 +194,19 @@ export const feesNote =
 
 export const ethics = {
   title: "Ethics, Confidentiality & Your Privacy",
-  paragraphs: [
-    "What you share in therapy is treated with care and confidentiality. I work within professional ethical guidelines, attend regular clinical supervision and hold appropriate professional indemnity insurance.",
-    "There are some limits to confidentiality — for example, where there are serious concerns about your safety or someone else's, safeguarding responsibilities, or where disclosure is legally required. We will talk through confidentiality and its limits clearly before beginning therapy, so you know what to expect.",
-    "Your personal information and clinical records are stored securely and handled in accordance with relevant UK data-protection requirements. Full details are available in my Therapy Agreement.",
+  parts: [
+    {
+      title: "Confidentiality",
+      body: "What you share in therapy is treated with care and confidentiality. I work within professional ethical guidelines, attend regular clinical supervision and hold appropriate professional indemnity insurance.",
+    },
+    {
+      title: "Limits to confidentiality",
+      body: "There are some limits to confidentiality, for example where there are serious concerns about your safety or someone else's, safeguarding responsibilities, or where disclosure is legally required. We will talk through confidentiality and its limits clearly before beginning therapy, so you know what to expect.",
+    },
+    {
+      title: "Your data",
+      body: "Your personal information and clinical records are stored securely and handled in accordance with relevant UK data-protection requirements. Full details are available in my Therapy Agreement.",
+    },
   ],
 };
 

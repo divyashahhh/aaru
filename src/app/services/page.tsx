@@ -9,11 +9,12 @@ import {
   fees,
   forWhom,
   forWhomIntro,
+  languages,
   site,
 } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: `Services — ${site.practice}`,
+  title: `Services | ${site.practice}`,
   description: "Who I work with, areas of particular interest, and fees.",
 };
 
@@ -36,12 +37,12 @@ export default function Services() {
           from there. If what brings you here isn&rsquo;t listed, it is still
           worth asking.
         </p>
-        <nav className="mt-10 flex flex-wrap gap-x-8 gap-y-2">
+        <nav className="mt-10 inline-flex flex-wrap gap-1.5 rounded-full border border-taupe/25 bg-cream p-1.5">
           {inPageNav.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-muted transition-colors hover:text-coffee"
+              className="rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-ink-muted transition-all duration-200 hover:bg-coffee hover:text-cream"
             >
               {item.label}
             </a>
@@ -66,7 +67,7 @@ export default function Services() {
             <Reveal
               key={group.title}
               delay={i * 130}
-              className="rounded-lg border border-taupe/25 bg-cream p-8"
+              className="rounded-lg border border-taupe/25 bg-cream p-8 transition-all duration-200 hover:-translate-y-1 hover:border-coffee/40 hover:shadow-lg"
             >
               <h3 className="font-display text-2xl text-ink">{group.title}</h3>
               <div className="mt-4 space-y-4">
@@ -93,32 +94,54 @@ export default function Services() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 divide-y divide-taupe/20">
+        <div className="mt-12 space-y-8">
           {areasOfInterest.map((area, i) => (
             <Reveal
               key={area.title}
               delay={i * 130}
-              className="grid gap-6 py-12 first:pt-0 md:grid-cols-[1fr_2fr]"
+              className={
+                area.featured
+                  ? "rounded-2xl border-2 border-coffee/70 bg-coffee p-8 text-cream shadow-xl transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl md:p-12"
+                  : "rounded-2xl border border-taupe/25 bg-cream p-8 transition-all duration-200 hover:-translate-y-1 hover:border-coffee/40 hover:shadow-lg md:p-10"
+              }
             >
-              <div>
-                <h3 className="font-display text-2xl text-ink">
-                  {area.title}
-                </h3>
-                {area.subtitle ? (
-                  <p className="subtitle mt-2 text-xs uppercase tracking-[0.1em]">
-                    {area.subtitle}
-                  </p>
-                ) : null}
-              </div>
-              <div className="max-w-2xl space-y-4">
-                {area.paragraphs.map((paragraph, j) => (
-                  <p
-                    key={j}
-                    className="text-base leading-relaxed text-ink-muted"
+              <div className="grid gap-6 md:grid-cols-[1fr_2fr]">
+                <div>
+                  <h3
+                    className={`font-display text-2xl md:text-3xl ${
+                      area.featured ? "text-cream" : "text-ink"
+                    }`}
                   >
-                    {paragraph}
-                  </p>
-                ))}
+                    {area.title}
+                  </h3>
+                  {area.subtitle && area.featured ? (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {languages.map((lang) => (
+                        <span
+                          key={lang}
+                          className="rounded-full border border-cream/40 bg-cream/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.1em] text-cream"
+                        >
+                          {lang}
+                        </span>
+                      ))}
+                    </div>
+                  ) : area.subtitle ? (
+                    <p className="subtitle mt-2 text-xs uppercase tracking-[0.1em]">
+                      {area.subtitle}
+                    </p>
+                  ) : null}
+                </div>
+                <div
+                  className={`max-w-2xl space-y-4 ${
+                    area.featured ? "text-cream/90" : "text-ink-muted"
+                  }`}
+                >
+                  {area.paragraphs.map((paragraph, j) => (
+                    <p key={j} className="text-base leading-relaxed">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
               </div>
             </Reveal>
           ))}
@@ -137,21 +160,44 @@ export default function Services() {
           </p>
         </Reveal>
 
-        <Reveal delay={120} className="mt-10 max-w-xl">
-          <dl className="divide-y divide-taupe/20 border-t border-taupe/20">
-            {fees.map((f) => (
-              <div
+        <div className="mt-10 grid gap-6 sm:grid-cols-3">
+          {fees.map((f, i) => {
+            const featured = i === 1;
+            return (
+              <Reveal
                 key={f.label}
-                className="flex items-baseline justify-between gap-6 py-4"
+                delay={120 + i * 100}
+                className={
+                  featured
+                    ? "relative rounded-2xl border-2 border-coffee bg-coffee p-8 text-center text-cream shadow-xl transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl"
+                    : "rounded-2xl border border-taupe/25 bg-cream p-8 text-center transition-all duration-200 hover:-translate-y-1 hover:border-coffee/40 hover:shadow-lg"
+                }
               >
-                <dt className="text-base text-ink-muted">{f.label}</dt>
-                <dd className="font-display text-xl text-ink">{f.price}</dd>
-              </div>
-            ))}
-          </dl>
-          <p className="mt-6 text-sm leading-relaxed text-ink-muted">
-            {feesNote}
-          </p>
+                {featured ? (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-ember px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-raisin">
+                    Most common
+                  </span>
+                ) : null}
+                <p
+                  className={`font-display text-4xl md:text-5xl ${
+                    featured ? "text-cream" : "text-coffee"
+                  }`}
+                >
+                  {f.price}
+                </p>
+                <p
+                  className={`mt-4 text-sm leading-snug ${
+                    featured ? "text-cream/85" : "text-ink-muted"
+                  }`}
+                >
+                  {f.label}
+                </p>
+              </Reveal>
+            );
+          })}
+        </div>
+        <Reveal delay={420} className="mt-8 max-w-xl">
+          <p className="text-sm leading-relaxed text-ink-muted">{feesNote}</p>
         </Reveal>
       </Section>
 
@@ -163,11 +209,18 @@ export default function Services() {
             {ethics.title}
           </h2>
         </Reveal>
-        <div className="mt-8 max-w-2xl space-y-5">
-          {ethics.paragraphs.map((paragraph, i) => (
-            <Reveal key={i} delay={i * 100}>
-              <p className="text-base leading-relaxed text-ink-muted">
-                {paragraph}
+        <div className="mt-10 grid gap-8 md:grid-cols-3">
+          {ethics.parts.map((part, i) => (
+            <Reveal
+              key={part.title}
+              delay={i * 120}
+              className="rounded-lg border border-taupe/25 bg-cream p-6 transition-all duration-200 hover:-translate-y-1 hover:border-coffee/40 hover:shadow-lg"
+            >
+              <h3 className="font-display text-xl text-raisin">
+                {part.title}
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-ink-muted">
+                {part.body}
               </p>
             </Reveal>
           ))}
