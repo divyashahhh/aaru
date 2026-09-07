@@ -51,7 +51,7 @@ export default function About() {
             className="a-rise mt-10 h-[22rem] max-w-sm"
             style={{ animationDelay: "380ms" }}
           >
-            <Photo arch tone="warm" className="h-full w-full" label="Headshot photo pending" />
+            <Photo arch tone="warm" className="h-full w-full" label="Headshot — photo pending" />
           </div>
         </div>
       </div>

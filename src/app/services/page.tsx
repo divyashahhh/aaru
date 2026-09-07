@@ -9,7 +9,6 @@ import {
   fees,
   forWhom,
   forWhomIntro,
-  languages,
   site,
 } from "@/content/site";
 
@@ -114,19 +113,12 @@ export default function Services() {
                   >
                     {area.title}
                   </h3>
-                  {area.subtitle && area.featured ? (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {languages.map((lang) => (
-                        <span
-                          key={lang}
-                          className="rounded-full border border-cream/40 bg-cream/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.1em] text-cream"
-                        >
-                          {lang}
-                        </span>
-                      ))}
-                    </div>
-                  ) : area.subtitle ? (
-                    <p className="subtitle mt-2 text-xs uppercase tracking-[0.1em]">
+                  {area.subtitle ? (
+                    <p
+                      className={`mt-3 text-sm uppercase tracking-[0.1em] ${
+                        area.featured ? "text-cream/75" : "subtitle"
+                      }`}
+                    >
                       {area.subtitle}
                     </p>
                   ) : null}
@@ -160,44 +152,21 @@ export default function Services() {
           </p>
         </Reveal>
 
-        <div className="mt-10 grid gap-6 sm:grid-cols-3">
-          {fees.map((f, i) => {
-            const featured = i === 1;
-            return (
-              <Reveal
+        <Reveal delay={120} className="mt-10 max-w-xl">
+          <dl className="divide-y divide-taupe/20 border-t border-taupe/20">
+            {fees.map((f) => (
+              <div
                 key={f.label}
-                delay={120 + i * 100}
-                className={
-                  featured
-                    ? "relative rounded-2xl border-2 border-coffee bg-coffee p-8 text-center text-cream shadow-xl transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl"
-                    : "rounded-2xl border border-taupe/25 bg-cream p-8 text-center transition-all duration-200 hover:-translate-y-1 hover:border-coffee/40 hover:shadow-lg"
-                }
+                className="flex items-baseline justify-between gap-6 py-5"
               >
-                {featured ? (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-ember px-4 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-raisin">
-                    Most common
-                  </span>
-                ) : null}
-                <p
-                  className={`font-display text-4xl md:text-5xl ${
-                    featured ? "text-cream" : "text-coffee"
-                  }`}
-                >
-                  {f.price}
-                </p>
-                <p
-                  className={`mt-4 text-sm leading-snug ${
-                    featured ? "text-cream/85" : "text-ink-muted"
-                  }`}
-                >
-                  {f.label}
-                </p>
-              </Reveal>
-            );
-          })}
-        </div>
-        <Reveal delay={420} className="mt-8 max-w-xl">
-          <p className="text-sm leading-relaxed text-ink-muted">{feesNote}</p>
+                <dt className="text-base text-ink-muted">{f.label}</dt>
+                <dd className="font-display text-2xl text-coffee">{f.price}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-6 text-sm leading-relaxed text-ink-muted">
+            {feesNote}
+          </p>
         </Reveal>
       </Section>
 
@@ -209,18 +178,11 @@ export default function Services() {
             {ethics.title}
           </h2>
         </Reveal>
-        <div className="mt-10 grid gap-8 md:grid-cols-3">
-          {ethics.parts.map((part, i) => (
-            <Reveal
-              key={part.title}
-              delay={i * 120}
-              className="rounded-lg border border-taupe/25 bg-cream p-6 transition-all duration-200 hover:-translate-y-1 hover:border-coffee/40 hover:shadow-lg"
-            >
-              <h3 className="font-display text-xl text-raisin">
-                {part.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-ink-muted">
-                {part.body}
+        <div className="mt-8 max-w-2xl space-y-5">
+          {ethics.paragraphs.map((paragraph, i) => (
+            <Reveal key={i} delay={i * 100}>
+              <p className="text-base leading-relaxed text-ink-muted">
+                {paragraph}
               </p>
             </Reveal>
           ))}

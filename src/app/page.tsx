@@ -5,7 +5,6 @@ import {
   closing,
   hero,
   heroPhrases,
-  languages,
   multilingualTeaser,
   process,
 } from "@/content/site";
@@ -137,25 +136,12 @@ export default function Home() {
 
       {/* ---------- Multilingual therapy ---------- */}
       <Section className="bg-linen">
-        <div className="grid items-center gap-12 md:grid-cols-[1.2fr_1fr]">
-          <Reveal direction="left">
-            <Eyebrow>Multilingual Therapy</Eyebrow>
-            <h2 className="mt-4 max-w-lg font-display text-3xl leading-snug text-raisin md:text-4xl">
-              {multilingualTeaser}
-            </h2>
-          </Reveal>
-          <Reveal
-            direction="right"
-            delay={120}
-            className="flex flex-col items-center gap-3 text-center md:items-start md:text-left"
-          >
-            {languages.map((lang) => (
-              <span key={lang} className="font-display text-3xl text-coffee md:text-4xl">
-                {lang}
-              </span>
-            ))}
-          </Reveal>
-        </div>
+        <Reveal className="mx-auto max-w-4xl text-center">
+          <Eyebrow>Multilingual Therapy</Eyebrow>
+          <h2 className="mt-6 font-display text-4xl leading-[1.15] text-raisin md:text-5xl lg:text-6xl">
+            {multilingualTeaser}
+          </h2>
+        </Reveal>
       </Section>
 
       {/* ---------- Areas I work with ---------- */}
