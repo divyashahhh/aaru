@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
-import { Button, Eyebrow, Photo, Section } from "@/components/ui";
+import { Button, Eyebrow, Section } from "@/components/ui";
 import {
   aboutOpening,
+  journeyBoldPhrase,
   journeyParagraphs,
   qualifications,
   sessionsFeel,
@@ -31,11 +33,8 @@ export default function About() {
         />
 
         <div className="relative mx-auto max-w-3xl px-6 py-24 md:px-12 lg:px-20 lg:py-28">
-          <p className="a-rise text-xs uppercase tracking-[0.18em] text-mist">
-            About
-          </p>
           <h1
-            className="a-rise mt-6 font-display text-5xl leading-[1.1] md:text-6xl"
+            className="a-rise font-display text-5xl leading-[1.1] md:text-6xl"
             style={{ animationDelay: "120ms" }}
           >
             {aboutOpening.greeting}
@@ -48,10 +47,17 @@ export default function About() {
           </p>
 
           <div
-            className="a-rise mt-10 h-[22rem] max-w-sm"
+            className="a-rise mt-10 h-[22rem] max-w-sm overflow-hidden rounded-t-full rounded-b-lg"
             style={{ animationDelay: "380ms" }}
           >
-            <Photo arch tone="warm" className="h-full w-full" label="Headshot — photo pending" />
+            <Image
+              src="/images/headshot.jpg"
+              alt="Portrait of Aarushi Shah"
+              width={675}
+              height={900}
+              className="h-full w-full object-cover"
+              priority
+            />
           </div>
         </div>
       </div>
@@ -66,13 +72,28 @@ export default function About() {
         </Reveal>
 
         <div className="mt-12 max-w-2xl space-y-6">
-          {journeyParagraphs.map((paragraph, i) => (
-            <Reveal key={i} delay={i * 100}>
-              <p className="text-base leading-relaxed text-ink-muted">
-                {paragraph}
-              </p>
-            </Reveal>
-          ))}
+          {journeyParagraphs.map((paragraph, i) => {
+            const [before, after] = paragraph.includes(journeyBoldPhrase)
+              ? paragraph.split(journeyBoldPhrase)
+              : [paragraph, undefined];
+            return (
+              <Reveal key={i} delay={i * 100}>
+                <p className="text-base leading-relaxed text-ink-muted">
+                  {after === undefined ? (
+                    before
+                  ) : (
+                    <>
+                      {before}
+                      <strong className="font-semibold text-raisin">
+                        {journeyBoldPhrase}
+                      </strong>
+                      {after}
+                    </>
+                  )}
+                </p>
+              </Reveal>
+            );
+          })}
         </div>
       </Section>
 

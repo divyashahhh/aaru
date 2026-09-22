@@ -9,6 +9,7 @@ import {
   fees,
   forWhom,
   forWhomIntro,
+  servicesIntro,
   site,
 } from "@/content/site";
 
@@ -32,9 +33,7 @@ export default function Services() {
           Areas I work with
         </h1>
         <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-muted">
-          Most people arrive with something specific, and find the work widens
-          from there. If what brings you here isn&rsquo;t listed, it is still
-          worth asking.
+          {servicesIntro}
         </p>
         <nav className="mt-10 inline-flex flex-wrap gap-1.5 rounded-full border border-taupe/25 bg-cream p-1.5">
           {inPageNav.map((item) => (
@@ -120,6 +119,15 @@ export default function Services() {
                       }`}
                     >
                       {area.subtitle}
+                    </p>
+                  ) : null}
+                  {area.intro ? (
+                    <p
+                      className={`mt-3 text-sm leading-relaxed ${
+                        area.featured ? "text-cream/85" : "text-ink-muted"
+                      }`}
+                    >
+                      {area.intro}
                     </p>
                   ) : null}
                 </div>

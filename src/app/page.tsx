@@ -1,5 +1,7 @@
+import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
-import { Button, Eyebrow, Photo, Section } from "@/components/ui";
+import { RoomScene } from "@/components/RoomScene";
+import { Button, Eyebrow, Section } from "@/components/ui";
 import {
   areasIWorkWith,
   closing,
@@ -7,6 +9,8 @@ import {
   heroPhrases,
   multilingualTeaser,
   process,
+  site,
+  welcome,
 } from "@/content/site";
 
 export default function Home() {
@@ -76,22 +80,20 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Floating arch collage */}
+          {/*
+            A single arch, set off-centre, with one soft bloom behind it for
+            depth. One composed image reads better here than two competing
+            fragments.
+          */}
           <div className="relative h-[30rem]">
-            <div className="a-drift absolute right-0 top-0 h-[24rem] w-[17rem]">
-              <Photo arch className="h-full w-full" label="The therapy room" />
-            </div>
-            <div
-              className="a-drift absolute bottom-0 left-0 h-[15rem] w-[13rem]"
-              style={{ animationDelay: "-4s" }}
-            >
-              <Photo tone="deep" className="h-full w-full" label="Detail" />
-            </div>
             <div
               aria-hidden
-              className="a-drift absolute bottom-24 right-8 h-20 w-20 rounded-full bg-coffee/80"
-              style={{ animationDelay: "-2s" }}
+              className="a-bloom absolute bottom-2 left-0 h-[21rem] w-[21rem] rounded-full bg-clay/45"
+              style={{ animationDelay: "-6s" }}
             />
+            <div className="a-drift absolute right-4 top-1 h-[27rem] w-[19rem]">
+              <RoomScene className="h-full w-full" />
+            </div>
           </div>
         </div>
       </div>
@@ -100,22 +102,20 @@ export default function Home() {
       <Section>
         <div className="grid items-center gap-16 md:grid-cols-2">
           <Reveal direction="left">
-            <Eyebrow>Welcome</Eyebrow>
+            <Eyebrow>{welcome.heading}</Eyebrow>
             <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-4xl">
-              Find your path to <em className="italic text-coffee">healing</em>{" "}
-              and connection
+              {welcome.subhead}
             </h2>
-            <p className="mt-6 text-base leading-relaxed text-ink-muted">
-              Life can feel overwhelming, and reaching out for help takes
-              courage. My work is with individuals navigating anxiety, grief,
-              difficult experiences and the periods of change that leave you
-              unsure of your footing.
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-ink-muted">
-              Together we explore what you are carrying, without rush and
-              without judgement, so you can engage with your life with renewed
-              purpose.
-            </p>
+            <div className="mt-6 space-y-4">
+              {welcome.paragraphs.map((paragraph, i) => (
+                <p
+                  key={i}
+                  className="text-base leading-relaxed text-ink-muted"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
             <div className="mt-8">
               <Button href="/about" variant="outline">
                 More about me
@@ -124,12 +124,18 @@ export default function Home() {
           </Reveal>
 
           <Reveal direction="right" delay={120}>
-            <Photo
-              arch
-              tone="olive"
-              className="h-[26rem]"
-              label="Portrait / calm interior"
-            />
+            {/* Framed high so the wide arch crops to head and shoulders
+                rather than through the middle of the portrait. */}
+            <div className="h-[26rem] overflow-hidden rounded-t-full rounded-b-lg bg-linen">
+              <Image
+                src="/images/headshot.jpg"
+                alt={site.practitioner}
+                width={675}
+                height={900}
+                className="h-full w-full object-cover"
+                style={{ objectPosition: "50% 55%" }}
+              />
+            </div>
           </Reveal>
         </div>
       </Section>
@@ -175,11 +181,8 @@ export default function Home() {
       {/* ---------- Process ---------- */}
       <Section className="bg-noir text-salt">
         <Reveal>
-          <p className="text-xs uppercase tracking-[0.18em] text-mist">
-            What to expect
-          </p>
-          <h2 className="mt-4 font-display text-3xl leading-snug md:text-4xl">
-            Starting is simpler than it feels
+          <h2 className="font-display text-4xl leading-snug md:text-5xl">
+            What to Expect
           </h2>
         </Reveal>
         <div className="mt-14 grid gap-10 md:grid-cols-3">
@@ -198,10 +201,7 @@ export default function Home() {
       {/* ---------- Closing CTA ---------- */}
       <Section className="bg-gradient-to-br from-parchment via-shell to-mist/70 text-center">
         <Reveal>
-          <h2 className="mx-auto max-w-xl font-display text-3xl leading-snug text-raisin md:text-4xl">
-            When you are ready, I am here
-          </h2>
-          <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-ink-muted">
+          <p className="mx-auto max-w-xl font-display text-2xl leading-snug text-raisin md:text-3xl">
             {closing}
           </p>
           <div className="mt-10">

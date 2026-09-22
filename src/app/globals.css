@@ -106,6 +106,33 @@ body {
   }
 }
 
+@keyframes beam-pulse {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes mote-rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  15%,
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-6px, -46px, 0);
+  }
+}
+
 /* Entrance used directly (hero, above the fold) */
 .a-rise {
   animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -119,6 +146,18 @@ body {
 .a-bloom {
   animation: bloom 14s ease-in-out infinite;
   filter: blur(60px);
+}
+
+/* Light falling through a window, in the RoomScene illustration */
+.a-beam {
+  animation: beam-pulse 7s ease-in-out infinite;
+  transform-box: fill-box;
+}
+
+.a-mote {
+  animation: mote-rise 9s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
 /* Scroll-revealed elements: hidden until <Reveal> marks them visible */
@@ -146,7 +185,9 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .a-rise,
   .a-drift,
-  .a-bloom {
+  .a-bloom,
+  .a-beam,
+  .a-mote {
     animation: none !important;
   }
   .reveal,

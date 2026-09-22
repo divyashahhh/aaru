@@ -2,7 +2,7 @@
   All site copy lives here so it can be edited in one place.
 
   Anything wrapped in [square brackets] is a PLACEHOLDER pending a detail from
-  the client (see Website Notes, Round 1 — Open items) rather than invented.
+  the client (see Website Notes, Round 1 - Open items) rather than invented.
 */
 
 export const site = {
@@ -16,7 +16,7 @@ export const site = {
   modality: "In person in London and online",
   email: "hello@aarushishahtherapy.com",
   phone: "+44 7837 210515",
-  /* Booking link for the Contact page — pending from client. */
+  /* Booking link for the Contact page, pending from client. */
   calendlyUrl: "[Calendly link pending]",
 };
 
@@ -28,7 +28,7 @@ export const nav = [
 ];
 
 /*
-  Sitewide credentials box — appears on all four pages (currently rendered in
+  Sitewide credentials box, appears on all four pages (currently rendered in
   the footer). Credentials list, then contact details underneath.
 */
 export const credentials = [
@@ -59,6 +59,16 @@ export const multilingualTeaser =
   "Offering services in English, Hindi/Urdu and Gujarati";
 
 export const languages = ["English", "Hindi/Urdu", "Gujarati"];
+
+export const welcome = {
+  heading: "WELCOME",
+  subhead:
+    "A space to understand what you're carrying and feel more connected to yourself and your life.",
+  paragraphs: [
+    "You do not need to be in crisis to come to therapy. Sometimes you simply want to understand why certain feelings, relationships or patterns keep returning, or why life has started to feel heavier, flatter or harder to navigate.",
+    "I work with people experiencing anxiety, grief, difficult relationships, major changes and moments of feeling lost or disconnected from themselves. Together, we make space for what is happening, understand it in the context of your life, and help you feel more connected to yourself and the way you want to live.",
+  ],
+};
 
 export const areasIWorkWith = [
   "Anxiety & Depression",
@@ -96,26 +106,30 @@ export const closing =
 /* ---------- About ---------- */
 
 export const aboutOpening = {
-  greeting: "Hello, I'm Aarushi.",
+  greeting: "About Aarushi",
   body: "My path into psychotherapy grew from an interest in how people make sense of themselves, their relationships and the worlds they come from.",
 };
 
 export const journeyParagraphs = [
   "I was born in India and grew up in Singapore, surrounded by different cultures, languages and ways of seeing the world.",
-  "Growing up between cultures made me curious about what it means to belong — and about the often complicated task of holding on to parts of where we come from while also becoming our own person.",
+  "Growing up between cultures made me curious about what it means to belong, and about the often complicated task of holding on to parts of where we come from while also becoming our own person.",
   "Over time, I became increasingly interested in the forces that shape us: family expectations, gender roles, cultural and religious values, intergenerational patterns, relationships and the rapidly changing world around us. I was particularly drawn to the tensions that can arise between what we feel we owe others and what we want for ourselves.",
   "My own experience of therapy showed me how powerful it can be to have a space where anger, sadness, uncertainty and contradiction do not need to be justified. What stayed with me most was not having someone provide the right answers, but being met with warmth, curiosity and a genuine interest in understanding my experience.",
   "That continues to shape how I work today. I believe most of us are simply trying to make sense of our experiences; sometimes we just need the right relationship and enough space to begin speaking about them.",
 ];
 
+/* The phrase to bold, in place, within journeyParagraphs[2]. */
+export const journeyBoldPhrase =
+  "family expectations, gender roles, cultural and religious values, intergenerational patterns, relationships";
+
 export const sessionsFeel = [
   {
     title: "Psychodynamic",
-    body: "I mainly work psychodynamically, which means we pay attention to how your past may still be showing up in the present — in your relationships, your expectations of yourself, the roles you fall into, and the feelings that seem to repeat. This does not mean everything is blamed on childhood. It means becoming curious about patterns that may have made sense once, but no longer serve you in the same way.",
+    body: "I mainly work psychodynamically, which means we pay attention to how your past may still be showing up in the present: in your relationships, your expectations of yourself, the roles you fall into, and the feelings that seem to repeat. This does not mean everything is blamed on childhood. It means becoming curious about patterns that may have made sense once, but no longer serve you in the same way.",
   },
   {
     title: "Relational",
-    body: "I also work relationally, which means I see therapy as something we create together. I am not sitting back and analysing you from a distance. The relationship between us matters. How it feels to be understood, misunderstood, close, guarded, uncertain or comfortable can all become part of the work, if useful. I aim to offer a warm and honest space where you can speak freely and where we can think together about what is happening for you.",
+    body: "I also work relationally, which means I see therapy as something we create together. The relationship between us matters. How it feels to be understood, misunderstood, close, guarded, uncertain or comfortable can all become part of the work, if useful. I aim to offer a warm and honest space where you can speak freely and where we can think together about what is happening for you.",
   },
   {
     title: "What that can look like",
@@ -124,7 +138,7 @@ export const sessionsFeel = [
 ];
 
 export const whoThisIsFor = [
-  "For some people, asking for help can bring up shame. You may feel like nothing is \"wrong enough\" to justify therapy, worry about what others would think if they knew, or feel guilty for talking to someone outside your family about things you were taught to keep private. At its simplest, it is a human conversation — a place to be listened to, understood and taken seriously.",
+  "For some people, asking for help can bring up shame. You may feel like nothing is \"wrong enough\" to justify therapy, worry about what others would think if they knew, or feel guilty for exposing private matters. At its simplest, it is a human conversation, a place to be listened to, understood and taken seriously.",
   "Therapy with me may not be the right fit for everyone. But if you are looking for someone you do not have to defend or explain yourself to, who will take your background, relationships and culture seriously, and who can offer a warm space to explore your experiences and understand yourself more deeply, you are very welcome to get in touch.",
 ];
 
@@ -136,6 +150,9 @@ export const qualifications = [
 
 /* ---------- Services ---------- */
 
+export const servicesIntro =
+  "You may come to therapy with one particular concern, and find that other parts of your life begin to make more sense alongside it. If what you are experiencing is not listed below, that does not mean it is not something we can explore together.";
+
 export const forWhomIntro =
   "I offer therapy to adolescents (aged 12 and above) and adults, from any background and age.";
 
@@ -144,8 +161,8 @@ export const forWhom = [
     title: "For Adolescents",
     paragraphs: [
       "Being a teenager can be confusing and intense. You are changing quickly, figuring out who you are, becoming more independent, and trying to make sense of friendships, family, school, your body, your confidence and where you fit.",
-      "Things like peer pressure, academic stress, loneliness, low self-esteem, conflict at home, grief, trauma or simply feeling lost can all become overwhelming. These experiences do not mean there is something wrong with you — they are often part of coming into your own, especially when life feels complicated.",
-      "Therapy can offer a private space to talk about what is happening without feeling judged, rushed or told what you should be feeling. You do not need to have everything worked out before you come. We can figure things out together, at your pace.",
+      "Things like peer pressure, academic stress, loneliness, low self-esteem, conflict at home, grief, trauma or simply feeling lost can all become overwhelming. These experiences do not mean there is something wrong with you, they are often part of coming into your own, especially when life feels complicated.",
+      "Therapy can offer a private space to talk about what is happening without feeling judged, rushed or told what you should be feeling.",
     ],
   },
   {
@@ -171,11 +188,11 @@ export const areasOfInterest = [
   },
   {
     title: "Women's Reproductive & Hormonal Health",
-    paragraphs: [
+    intro:
       "Changes in our bodies can affect far more than our physical health. PMS, PCOS, endometriosis, pregnancy and the postpartum period, maternal mental health, fertility experiences and menopause can overlap with changes in mood, identity, relationships, confidence and how at home you feel in your own body.",
+    paragraphs: [
       "There is still far too little space for women to talk openly about these experiences without being undermined or accused of exaggerating. Symptoms can be confusing, difficult to separate from one another, and sometimes minimised or misunderstood by the people around you. You may even find yourself questioning whether what you are feeling is \"real enough\" to deserve support.",
-      "I do not provide medical diagnosis or treatment. What I can offer is a space to make sense of what is happening emotionally alongside what is happening physically — to talk about anger, grief, fear, exhaustion, changes in sexuality or identity, resentment, uncertainty, or anything else that may come with it.",
-      "You do not need to make your experience smaller or easier for someone else to understand. Therapy can be a place where your experience is taken seriously, where you can hear yourself more clearly, and where you do not have to feel overpowered or silenced.",
+      "I do not provide medical diagnosis or treatment. What I can offer is a space to make sense of what is happening emotionally alongside what is happening physically, to talk about anger, grief, fear, exhaustion, changes in sexuality or identity, resentment, uncertainty, or anything else that may come with it.",
     ],
   },
 ];
@@ -196,7 +213,7 @@ export const ethics = {
   title: "Ethics, Confidentiality & Your Privacy",
   paragraphs: [
     "What you share in therapy is treated with care and confidentiality. I work within professional ethical guidelines, attend regular clinical supervision and hold appropriate professional indemnity insurance.",
-    "There are some limits to confidentiality — for example, where there are serious concerns about your safety or someone else's, safeguarding responsibilities, or where disclosure is legally required. We will talk through confidentiality and its limits clearly before beginning therapy, so you know what to expect.",
+    "There are some limits to confidentiality, for example where there are serious concerns about your safety or someone else's, safeguarding responsibilities, or where disclosure is legally required. We will talk through confidentiality and its limits clearly before beginning therapy, so you know what to expect.",
     "Your personal information and clinical records are stored securely and handled in accordance with relevant UK data-protection requirements. Full details are available in my Therapy Agreement.",
   ],
 };

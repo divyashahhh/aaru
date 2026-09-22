@@ -52,37 +52,3 @@ export function Button({
     </Link>
   );
 }
-
-/*
-  Stand-in for photography. Real images (calm interiors, plants, natural light)
-  drop in here later — kept as CSS so the prototype makes no external requests.
-*/
-export function Photo({
-  className = "",
-  arch = false,
-  label = "Photograph",
-  tone = "warm",
-}: {
-  className?: string;
-  arch?: boolean;
-  label?: string;
-  tone?: "warm" | "deep" | "olive" | "light";
-}) {
-  const tones = {
-    warm: "bg-gradient-to-br from-ember via-clay to-coffee text-salt/70",
-    deep: "bg-gradient-to-br from-antique via-olive to-raisin text-salt/70",
-    olive: "bg-gradient-to-br from-mist via-antique to-olive text-salt/70",
-    light: "bg-gradient-to-br from-linen via-parchment to-mist text-ink/40",
-  };
-  return (
-    <div
-      className={`flex items-end justify-center ${tones[tone]} ${
-        arch ? "rounded-t-full rounded-b-lg" : "rounded-lg"
-      } ${className}`}
-    >
-      <span className="mb-6 text-[10px] uppercase tracking-[0.2em]">
-        {label}
-      </span>
-    </div>
-  );
-}

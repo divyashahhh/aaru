@@ -22,7 +22,7 @@ export default function Contact() {
             href={site.calendlyUrl}
             className="inline-block rounded-full bg-sage px-8 py-3 text-xs uppercase tracking-[0.18em] text-cream transition-all duration-200 hover:-translate-y-0.5 hover:bg-sage-deep hover:shadow-md active:translate-y-0"
           >
-            Book via Calendly
+            Book your 1st appointment
           </a>
           <span className="text-sm text-ink-muted">
             Or send an enquiry by email
@@ -35,11 +35,14 @@ export default function Contact() {
           <ContactForm />
 
           <div className="h-fit rounded-lg border border-taupe/25 bg-shell p-8">
-            <h2 className="font-display text-2xl text-ink">Directly</h2>
+            <h2 className="font-display text-2xl text-ink">Contact Details</h2>
             <p className="mt-4 text-base text-ink">{site.email}</p>
             <p className="mt-1 text-base text-ink">{site.phone}</p>
             <p className="mt-6 text-sm leading-relaxed text-ink-muted">
-              {site.modality}. I usually reply within [two working days].
+              {site.modality}.
+            </p>
+            <p className="mt-1 text-sm leading-relaxed text-ink-muted">
+              Replies within two working days
             </p>
             <p className="subtitle mt-8 text-xs uppercase tracking-[0.1em]">
               Confidential &amp; BACP registered
