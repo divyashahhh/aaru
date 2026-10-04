@@ -11,7 +11,7 @@ export const site = {
   practitioner: "Aarushi Shah",
   initials: "AS",
   discipline: "Psychotherapy",
-  tagline: "A space to feel more alive.",
+  tagline: "A space that is truly yours.",
   location: "London",
   modality: "In person in London and online",
   email: "hello@aarushishahtherapy.com",
@@ -44,7 +44,7 @@ export const credentials = [
 /* ---------- Homepage ---------- */
 
 export const hero = {
-  headline: "A space to feel more alive",
+  headline: "A space that is truly yours",
   subtext:
     "Psychodynamic therapy for adolescents and adults from all backgrounds, offered online and in person.",
 };
@@ -76,7 +76,7 @@ export const areasIWorkWith = [
   "Family and Romantic Relationships",
   "Low Mood & Self-worth",
   "Race & Ethnicity",
-  "Identity",
+  "Grief & Bereavement",
   "Sexual Assault",
   "Life transitions",
   "and more…",
@@ -125,7 +125,7 @@ export const journeyBoldPhrase =
 export const sessionsFeel = [
   {
     title: "Psychodynamic",
-    body: "I mainly work psychodynamically, which means we pay attention to how your past may still be showing up in the present: in your relationships, your expectations of yourself, the roles you fall into, and the feelings that seem to repeat. This does not mean everything is blamed on childhood. It means becoming curious about patterns that may have made sense once, but no longer serve you in the same way.",
+    body: "I mainly work psychodynamically, which means we pay attention to how your past may still be showing up in the present: in your relationships, your expectations of yourself, the roles you fall into, and the feelings that seem to repeat. Not everything is blamed on childhood but it means becoming curious about patterns that may have made sense once, but no longer serve you now.",
   },
   {
     title: "Relational",
@@ -138,8 +138,8 @@ export const sessionsFeel = [
 ];
 
 export const whoThisIsFor = [
-  "For some people, asking for help can bring up shame. You may feel like nothing is \"wrong enough\" to justify therapy, worry about what others would think if they knew, or feel guilty for exposing private matters. At its simplest, it is a human conversation, a place to be listened to, understood and taken seriously.",
-  "Therapy with me may not be the right fit for everyone. But if you are looking for someone you do not have to defend or explain yourself to, who will take your background, relationships and culture seriously, and who can offer a warm space to explore your experiences and understand yourself more deeply, you are very welcome to get in touch.",
+  "For some people, asking for help can bring up shame. You may feel like nothing is \"wrong enough\" to justify therapy, worry about what others would think if they knew, or feel guilty for talking to someone outside your family about things you were taught to keep private. At its simplest, it is a human conversation, a place to be listened to, understood and taken seriously.",
+  "If you are looking for someone you do not have to defend or explain yourself to and who can offer a warm space to explore your experiences and understand yourself more deeply in the context of your culture and background, you are very welcome to get in touch.",
 ];
 
 export const qualifications = [
@@ -160,17 +160,17 @@ export const forWhom = [
   {
     title: "For Adolescents",
     paragraphs: [
-      "Being a teenager can be confusing and intense. You are changing quickly, figuring out who you are, becoming more independent, and trying to make sense of friendships, family, school, your body, your confidence and where you fit.",
-      "Things like peer pressure, academic stress, loneliness, low self-esteem, conflict at home, grief, trauma or simply feeling lost can all become overwhelming. These experiences do not mean there is something wrong with you, they are often part of coming into your own, especially when life feels complicated.",
-      "Therapy can offer a private space to talk about what is happening without feeling judged, rushed or told what you should be feeling.",
+      "Being a teenager can be confusing and intense. You are changing quickly and trying to make sense of friendships, family, your body and where you fit.",
+      "Things like peer pressure, academic stress, loneliness, low self-esteem, conflict at home, grief, trauma or simply feeling lost can all become overwhelming. These experiences are often part of coming into your own, especially when life feels complicated.",
+      "Therapy can offer a private space to talk about what is happening without feeling judged, rushed or told what you should be feeling. You do not need to have everything worked out, we can figure things out together, at your pace.",
     ],
   },
   {
     title: "For Adults",
     paragraphs: [
       "Who said you needed to have it all figured out as an adult? Adult life can bring its own periods of uncertainty, pressure and change. You may be dealing with anxiety, grief, difficult relationships, family expectations, loneliness, past experiences, burnout, identity questions or simply a sense that something in your life no longer feels right.",
-      "You do not need to be in crisis to come to therapy. Sometimes it is enough to want a space to think, feel and understand yourself more clearly.",
-      "Together, we can explore what you are carrying, the patterns that may be shaping your life, and what might help you feel more connected to yourself and the life you want to live.",
+      "Sometimes it is enough to want a space to think, feel and understand yourself more clearly.",
+      "Together, we can explore the patterns that may be shaping your life and what might help you feel more connected to yourself and the life you want to live.",
     ],
   },
 ];
@@ -182,7 +182,7 @@ export const areasOfInterest = [
     featured: true,
     paragraphs: [
       "There can be something immediately reassuring about hearing your own language in the therapy room. Sometimes, a little of the anxiety drops before the conversation has even properly begun.",
-      "Certain feelings, memories, jokes, family dynamics and ways of expressing yourself do not translate neatly into English. In multilingual therapy, you do not have to constantly search for the \"right\" English word, explain the cultural meaning behind what you are saying, or monitor how your words might be understood.",
+      "In multilingual therapy, you do not have to constantly search for the \"right\" English word or monitor how your words might be understood.",
       "Sessions are available in English, Hindi/Urdu and Gujarati, and you are welcome to move between languages naturally. The aim is for you to bring as much of yourself into the room as possible.",
     ],
   },
@@ -191,7 +191,7 @@ export const areasOfInterest = [
     intro:
       "Changes in our bodies can affect far more than our physical health. PMS, PCOS, endometriosis, pregnancy and the postpartum period, maternal mental health, fertility experiences and menopause can overlap with changes in mood, identity, relationships, confidence and how at home you feel in your own body.",
     paragraphs: [
-      "There is still far too little space for women to talk openly about these experiences without being undermined or accused of exaggerating. Symptoms can be confusing, difficult to separate from one another, and sometimes minimised or misunderstood by the people around you. You may even find yourself questioning whether what you are feeling is \"real enough\" to deserve support.",
+      "There is still far too little space for women to talk openly about these experiences without being undermined or accused of exaggerating. You may even find yourself questioning whether what you are feeling is \"real enough\" to deserve support.",
       "I do not provide medical diagnosis or treatment. What I can offer is a space to make sense of what is happening emotionally alongside what is happening physically, to talk about anger, grief, fear, exhaustion, changes in sexuality or identity, resentment, uncertainty, or anything else that may come with it.",
     ],
   },
@@ -202,7 +202,7 @@ export const feesIntro =
 
 export const fees = [
   { label: "Initial consultation (15 mins)", price: "Free" },
-  { label: "Individual session, in person or online (50 mins)", price: "£80" },
+  { label: "Individual session, in person or online (50 mins)", price: "£75" },
   { label: "Low-cost counselling for students", price: "£40" },
 ];
 
