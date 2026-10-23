@@ -1,42 +1,55 @@
 @import "tailwindcss";
 
-/*
-  Palette: SALT / ANTIQUE / COFFEE / OLIVE LEAF / NOIR / RAISIN BLACK,
-  plus a few derived tints for gradients and depth.
-
-  The semantic names (cream, sage, ink…) are mapped onto this palette so the
-  whole site re-skins from one place.
-*/
 @theme {
-  /* Named palette */
-  --color-salt: #f1ebe4;
-  --color-antique: #87826e;
+  /*
+    Every light shade shares the same warm, slightly golden undertone, so the
+    ivories, linens, apricots and sages sit together without fighting. The
+    green is a golden moss rather than a grey-green, to agree with the browns.
+  */
+
+  /* Warm neutrals, lightest to darkest */
+  --color-porcelain: #fbf8f2;
+  --color-salt: #f5f0e7;
+  --color-linen: #ece5d8;
+  --color-parchment: #ddd3c1;
+  --color-dune: #d4c2aa;
+
+  /* Browns */
+  --color-blush: #f3e8da;
+  --color-apricot: #ead5bb;
+  --color-ember: #c49260;
+  --color-caramel: #b07b4c;
+  --color-clay: #a5744a;
   --color-coffee: #734e30;
-  --color-olive: #464831;
-  --color-noir: #2e2f23;
-  --color-raisin: #22231a;
+  --color-cocoa: #4f3524;
+  --color-umber: #2e2118;
 
-  /* Derived tints, for gradients and warmth */
-  --color-clay: #a87246;
-  --color-ember: #c08a55;
-  --color-mist: #b5b09a;
-  --color-linen: #e7dfd4;
-  --color-parchment: #dcd1c1;
+  /* Greens: golden sage to deep moss, echoing the logo's leaf */
+  --color-sage-tint: #e6e4cf;
+  --color-fern: #8e9268;
+  --color-moss: #5b6443;
+  --color-forest: #363b28;
 
-  /* Semantic mapping */
-  --color-cream: #f1ebe4;
-  --color-shell: #e7dfd4;
-  --color-sage: #464831;
-  --color-sage-deep: #2e2f23;
+  /* Text */
+  --color-raisin: #2a221a;
+  --color-ink: #2a221a;
+  --color-ink-muted: #5e5346;
+  /* A darker label tone for small/uppercase text that needs to stay legible */
+  --color-label: #4a3d2f;
+  --color-label-on-dark: #ece2d2;
+
+  /* Older names still used in a few places, mapped onto the palette above */
+  --color-cream: #f5f0e7;
+  --color-shell: #ece5d8;
+  --color-sand: #ddd3c1;
+  --color-antique: #8a7f6c;
+  --color-mist: #c2b49e;
+  --color-taupe: #8a7f6c;
+  --color-noir: #3a2c20;
+  --color-olive: #5b6443;
+  --color-sage: #5b6443;
+  --color-sage-deep: #363b28;
   --color-terracotta: #734e30;
-  --color-sand: #dcd1c1;
-  --color-taupe: #87826e;
-  --color-ink: #22231a;
-  --color-ink-muted: #5a5647;
-  /* A darker label tone — for small/uppercase text that needs to stay legible,
-     on both light and dark backgrounds, instead of the very muted antique. */
-  --color-label: #4a3f2f;
-  --color-label-on-dark: #e4dccb;
 
   --font-display: var(--font-eb-garamond), Georgia, serif;
   --font-sans: var(--font-work-sans), system-ui, sans-serif;
@@ -48,13 +61,65 @@ body {
   font-family: var(--font-sans);
 }
 
+/*
+  Paragraphs are justified sitewide. Hyphenation (via <html lang="en">) keeps
+  narrow phone columns from opening up wide gaps between words. Centred blocks
+  stay centred, and headings are balanced rather than justified.
+
+  This sits in the base layer so Tailwind utilities (text-center, text-left…)
+  on the paragraph itself still win.
+*/
+@layer base {
+  p {
+    text-align: justify;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    hyphenate-limit-chars: 7 3 3;
+    -webkit-hyphenate-limit-before: 3;
+    -webkit-hyphenate-limit-after: 3;
+    /* No text-wrap: pretty here: Safari turns hyphenation off under it,
+       which is what keeps justified phone columns even. */
+  }
+
+  .text-center p {
+    text-align: center;
+  }
+
+  /* Never hyphenate small caps labels or headings */
+  .eyebrow,
+  .uppercase,
+  h1,
+  h2,
+  h3 {
+    -webkit-hyphens: manual;
+    hyphens: manual;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+}
+
+/*
+  Safari doesn't always clip a rounded, overflow-hidden box while it or its
+  child is being transformed (the arch portraits fade/slide in), so the image
+  corners briefly poke out. Isolating the box and giving it a no-op mask
+  forces the clip.
+*/
+.clip-safe {
+  isolation: isolate;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
 .eyebrow {
   font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-label);
+  color: var(--color-coffee);
 }
 
 .eyebrow-on-dark {
@@ -84,80 +149,9 @@ body {
   }
 }
 
-@keyframes drift {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    transform: translate3d(0, -22px, 0) scale(1.04);
-  }
-}
-
-@keyframes bloom {
-  0%,
-  100% {
-    opacity: 0.55;
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  50% {
-    opacity: 0.85;
-    transform: translate3d(3%, -4%, 0) scale(1.15);
-  }
-}
-
-@keyframes beam-pulse {
-  0%,
-  100% {
-    opacity: 0.75;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.03);
-  }
-}
-
-@keyframes mote-rise {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 18px, 0);
-  }
-  15%,
-  70% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translate3d(-6px, -46px, 0);
-  }
-}
-
 /* Entrance used directly (hero, above the fold) */
 .a-rise {
   animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.a-drift {
-  animation: drift 9s ease-in-out infinite;
-}
-
-/* Soft colour blobs behind the hero */
-.a-bloom {
-  animation: bloom 14s ease-in-out infinite;
-  filter: blur(60px);
-}
-
-/* Light falling through a window, in the RoomScene illustration */
-.a-beam {
-  animation: beam-pulse 7s ease-in-out infinite;
-  transform-box: fill-box;
-}
-
-.a-mote {
-  animation: mote-rise 9s ease-in-out infinite;
-  transform-box: fill-box;
-  transform-origin: center;
 }
 
 /* Scroll-revealed elements: hidden until <Reveal> marks them visible */
@@ -182,12 +176,156 @@ body {
   transform: none;
 }
 
+/* ---------- Area icons (see AreaIcon.tsx) ---------- */
+
+.ai-wave,
+.ai-ring-l,
+.ai-ring-r,
+.ai-pulse,
+.ai-needle,
+.ai-meridian,
+.ai-shadow,
+.ai-twinkle {
+  transform-box: view-box;
+  transform-origin: 32px 32px;
+}
+
+@keyframes ai-wave {
+  to {
+    transform: translateX(-32px);
+  }
+}
+.ai-wave {
+  animation: ai-wave 5s linear infinite;
+}
+.ai-wave-2 {
+  animation-duration: 7s;
+}
+.ai-wave-3 {
+  animation-duration: 10s;
+}
+
+@keyframes ai-ring-l {
+  0%,
+  100% {
+    transform: translateX(-2.5px);
+  }
+  50% {
+    transform: translateX(1.5px);
+  }
+}
+@keyframes ai-ring-r {
+  0%,
+  100% {
+    transform: translateX(2.5px);
+  }
+  50% {
+    transform: translateX(-1.5px);
+  }
+}
+@keyframes ai-pulse {
+  0%,
+  100% {
+    transform: scale(0.7);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+.ai-ring-l {
+  animation: ai-ring-l 4.5s ease-in-out infinite;
+}
+.ai-ring-r {
+  animation: ai-ring-r 4.5s ease-in-out infinite;
+}
+.ai-pulse {
+  animation: ai-pulse 4.5s ease-in-out infinite;
+}
+
+/* Searches, overshoots, settles, rests, then searches again */
+@keyframes ai-needle {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  12% {
+    transform: rotate(-32deg);
+  }
+  30% {
+    transform: rotate(24deg);
+  }
+  46% {
+    transform: rotate(-12deg);
+  }
+  60% {
+    transform: rotate(6deg);
+  }
+  72% {
+    transform: rotate(0deg);
+  }
+}
+.ai-needle {
+  animation: ai-needle 7s ease-in-out infinite;
+}
+
+/* Squashing a circle horizontally reads as a meridian turning */
+@keyframes ai-meridian {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.06);
+  }
+}
+.ai-meridian {
+  animation: ai-meridian 6s ease-in-out infinite;
+}
+.ai-meridian-2 {
+  animation-delay: -3s;
+}
+
+/* The shadow crosses the disc: full, waning, new, waxing, full */
+@keyframes ai-shadow {
+  from {
+    transform: translateX(-37px);
+  }
+  to {
+    transform: translateX(37px);
+  }
+}
+.ai-shadow {
+  animation: ai-shadow 9s linear infinite;
+}
+
+@keyframes ai-twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.ai-twinkle {
+  animation: ai-twinkle 3s ease-in-out infinite;
+}
+.ai-twinkle-2 {
+  animation-delay: -1.5s;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .a-rise,
-  .a-drift,
-  .a-bloom,
-  .a-beam,
-  .a-mote {
+  .ai-wave,
+  .ai-ring-l,
+  .ai-ring-r,
+  .ai-pulse,
+  .ai-needle,
+  .ai-meridian,
+  .ai-shadow,
+  .ai-twinkle,
+  .a-rise {
     animation: none !important;
   }
   .reveal,

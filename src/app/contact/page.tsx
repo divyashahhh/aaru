@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Eyebrow, Section } from "@/components/ui";
+import { Eyebrow, Panel, Section } from "@/components/ui";
 import { contactHeading, site } from "@/content/site";
 import { ContactForm } from "./ContactForm";
 
@@ -11,43 +11,69 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <main>
-      <Section className="bg-shell">
-        <Eyebrow>Contact</Eyebrow>
-        <h1 className="mt-4 max-w-2xl font-display text-4xl leading-snug text-ink md:text-5xl">
-          {contactHeading}
-        </h1>
-
-        <div className="mt-8 flex flex-wrap items-center gap-5">
-          <a
-            href={site.calendlyUrl}
-            className="inline-block rounded-full bg-sage px-8 py-3 text-xs uppercase tracking-[0.18em] text-cream transition-all duration-200 hover:-translate-y-0.5 hover:bg-sage-deep hover:shadow-md active:translate-y-0"
+      <Section className="bg-linen">
+        <Panel className="max-w-4xl md:p-12">
+          <Eyebrow className="a-rise">Contact</Eyebrow>
+          <h1
+            className="a-rise mt-5 font-display text-[2.5rem] leading-[1.08] text-raisin md:text-[58px]"
+            style={{ animationDelay: "100ms" }}
           >
-            Book your 1st appointment
-          </a>
-          <span className="text-sm text-ink-muted">
-            Or send an enquiry by email
-          </span>
-        </div>
+            {contactHeading}
+          </h1>
+
+          <div
+            className="a-rise mt-10 flex flex-wrap items-center gap-x-7 gap-y-4"
+            style={{ animationDelay: "200ms" }}
+          >
+            {/* Calendly link pending from client (site.calendlyUrl) */}
+            <a
+              href={site.calendlyUrl}
+              className="inline-block rounded-md bg-coffee px-7 py-4 text-[12px] font-medium uppercase tracking-[0.14em] text-salt transition-colors hover:bg-cocoa md:text-[13px]"
+            >
+              Book your 1st appointment
+            </a>
+            <a
+              href="#enquiry"
+              className="text-[15px] text-coffee underline decoration-coffee/40 underline-offset-[5px] hover:decoration-coffee"
+            >
+              Or send an enquiry by email
+            </a>
+          </div>
+        </Panel>
       </Section>
 
-      <Section>
-        <div className="grid gap-16 md:grid-cols-2">
-          <ContactForm />
+      <Section id="enquiry">
+        <div className="grid items-start gap-5 md:grid-cols-[1.4fr_1fr] md:gap-6">
+          <Panel className="md:p-10">
+            <ContactForm />
+          </Panel>
 
-          <div className="h-fit rounded-lg border border-taupe/25 bg-shell p-8">
-            <h2 className="font-display text-2xl text-ink">Contact Details</h2>
-            <p className="mt-4 text-base text-ink">{site.email}</p>
-            <p className="mt-1 text-base text-ink">{site.phone}</p>
-            <p className="mt-6 text-sm leading-relaxed text-ink-muted">
-              {site.modality}.
-            </p>
-            <p className="mt-1 text-sm leading-relaxed text-ink-muted">
-              Replies within two working days
-            </p>
-            <p className="subtitle mt-8 text-xs uppercase tracking-[0.1em]">
+          <Panel tone="dark" className="md:p-10">
+            <h2 className="font-display text-[32px] leading-tight text-salt">
+              Contact Details
+            </h2>
+            <div className="mt-6 space-y-4">
+              <a
+                href={`mailto:${site.email}`}
+                className="block break-words text-[17px] text-salt hover:text-apricot"
+              >
+                {site.email}
+              </a>
+              <a
+                href={site.phoneHref}
+                className="block text-[17px] text-salt hover:text-apricot"
+              >
+                {site.phone}
+              </a>
+              <p className="text-[15.5px] text-blush/85">{site.modality}.</p>
+              <p className="text-[15.5px] text-blush/85">
+                Replies within two working days
+              </p>
+            </div>
+            <p className="mt-7 inline-flex rounded-full bg-salt/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-apricot ring-1 ring-salt/25">
               Confidential &amp; BACP registered
             </p>
-          </div>
+          </Panel>
         </div>
       </Section>
     </main>

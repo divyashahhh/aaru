@@ -1,15 +1,15 @@
 import Image from "next/image";
+import { AreaIcon } from "@/components/AreaIcon";
 import { Reveal } from "@/components/Reveal";
-import { RoomScene } from "@/components/RoomScene";
-import { Button, Eyebrow, Section } from "@/components/ui";
+import { Button, Eyebrow, Panel, Pill, Section } from "@/components/ui";
 import {
   areasIWorkWith,
   closing,
   hero,
   heroPhrases,
+  languages,
   multilingualTeaser,
   process,
-  site,
   welcome,
 } from "@/content/site";
 
@@ -17,196 +17,205 @@ export default function Home() {
   return (
     <main>
       {/* ---------- Hero ---------- */}
-      <div className="relative overflow-hidden bg-salt">
-        {/* Drifting colour blooms */}
-        <div
-          aria-hidden
-          className="a-bloom absolute -left-24 -top-32 h-[28rem] w-[28rem] rounded-full bg-ember/50"
-        />
-        <div
-          aria-hidden
-          className="a-bloom absolute -right-20 top-10 h-[32rem] w-[32rem] rounded-full bg-mist/60"
-          style={{ animationDelay: "-5s" }}
-        />
-        <div
-          aria-hidden
-          className="a-bloom absolute bottom-[-12rem] left-1/3 h-[30rem] w-[30rem] rounded-full bg-clay/40"
-          style={{ animationDelay: "-9s" }}
-        />
-
-        <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-6 py-24 md:px-12 lg:grid-cols-[1.1fr_0.9fr] lg:px-20 lg:py-28">
-          <div>
-            <span className="a-rise inline-flex items-center gap-2 rounded-full border border-olive/25 bg-salt/70 px-4 py-1.5 text-[11px] uppercase tracking-[0.18em] text-olive backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-coffee" />
+      <section
+        className="px-5 py-14 md:px-12 md:py-20 lg:px-20"
+        style={{
+          background:
+            "radial-gradient(120% 95% at 85% 15%, #86603f 0%, #634530 45%, #3d2b1f 100%)",
+        }}
+      >
+        <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
+          <div className="min-w-0">
+            {/* Solid and pulsing so it's the first thing the eye lands on */}
+            <span className="a-rise inline-flex items-center gap-3 rounded-full bg-salt px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-coffee shadow-lg shadow-black/25 ring-4 ring-ember/35">
+              <span className="relative flex h-2.5 w-2.5 shrink-0">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ember opacity-75" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-ember" />
+              </span>
               Now accepting new clients
             </span>
 
             <h1
-              className="a-rise mt-7 font-display text-5xl leading-[1.08] text-raisin md:text-6xl lg:text-7xl"
+              className="a-rise mt-7 font-display text-[2.75rem] leading-[1.04] text-salt md:text-6xl lg:text-[68px]"
               style={{ animationDelay: "120ms" }}
             >
               {hero.headline}
             </h1>
 
             <p
-              className="a-rise mt-7 max-w-md text-lg leading-relaxed text-ink-muted"
-              style={{ animationDelay: "240ms" }}
+              className="a-rise mt-6 max-w-[30rem] text-lg leading-relaxed text-blush/90"
+              style={{ animationDelay: "200ms" }}
             >
               {hero.subtext}
             </p>
 
+            <ul
+              className="a-rise mt-7 flex flex-wrap gap-2.5"
+              style={{ animationDelay: "280ms" }}
+            >
+              {heroPhrases.map((phrase) => (
+                <li key={phrase}>
+                  <Pill className="border border-apricot/30 bg-salt/10 text-apricot">
+                    {phrase}
+                  </Pill>
+                </li>
+              ))}
+            </ul>
+
             <div
-              className="a-rise mt-10 flex flex-wrap items-center gap-4"
+              className="a-rise mt-10 flex flex-wrap gap-3.5"
               style={{ animationDelay: "360ms" }}
             >
-              <Button href="/contact">Book a free consultation</Button>
-              <Button href="/services" variant="outline">
+              <Button href="/contact" variant="light">
+                Book a free consultation
+              </Button>
+              <Button href="/services" variant="ghost">
                 See how I can help
               </Button>
             </div>
-
-            <div
-              className="a-rise mt-12 flex flex-wrap gap-2.5"
-              style={{ animationDelay: "480ms" }}
-            >
-              {heroPhrases.map((phrase) => (
-                <span
-                  key={phrase}
-                  className="rounded-full border border-antique/35 bg-salt/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-ink-muted backdrop-blur"
-                >
-                  {phrase}
-                </span>
-              ))}
-            </div>
           </div>
 
-          {/*
-            A single arch, set off-centre, with one soft bloom behind it for
-            depth. One composed image reads better here than two competing
-            fragments.
-          */}
-          <div className="relative h-[30rem]">
-            <div
-              aria-hidden
-              className="a-bloom absolute bottom-2 left-0 h-[21rem] w-[21rem] rounded-full bg-clay/45"
-              style={{ animationDelay: "-6s" }}
+          <div
+            className="a-rise clip-safe relative mx-auto h-[26rem] w-full max-w-[24rem] overflow-hidden rounded-2xl ring-1 ring-apricot/20 md:h-[36rem] md:max-w-[28rem]"
+            style={{ animationDelay: "240ms" }}
+          >
+            <Image
+              src="/images/hero-room.jpg"
+              alt="A warmly lit room with a cane armchair, a small side table and dried pampas in a vase"
+              fill
+              priority
+              sizes="(min-width: 768px) 28rem, 100vw"
+              className="-scale-x-100 object-cover object-[50%_72%]"
             />
-            <div className="a-drift absolute right-4 top-1 h-[27rem] w-[19rem]">
-              <RoomScene className="h-full w-full" />
-            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* ---------- Welcome ---------- */}
       <Section>
-        <div className="grid items-center gap-16 md:grid-cols-2">
-          <Reveal direction="left">
-            <Eyebrow>{welcome.heading}</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-4xl">
-              {welcome.subhead}
-            </h2>
-            <div className="mt-6 space-y-4">
-              {welcome.paragraphs.map((paragraph, i) => (
-                <p
-                  key={i}
-                  className="text-base leading-relaxed text-ink-muted"
-                >
-                  {paragraph}
-                </p>
-              ))}
+        <Reveal>
+          <Panel className="grid gap-8 md:grid-cols-[1fr_1.15fr] md:gap-16 md:p-14">
+            <div>
+              <Eyebrow>{welcome.heading}</Eyebrow>
+              <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-[40px] md:leading-[1.2]">
+                {welcome.subhead}
+              </h2>
             </div>
-            <div className="mt-8">
-              <Button href="/about" variant="outline">
-                More about me
-              </Button>
+            <div>
+              <div className="space-y-5">
+                {welcome.paragraphs.map((paragraph, i) => (
+                  <p key={i} className="text-[17px] leading-[1.8] text-label">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+              <div className="mt-8">
+                <Button href="/about" variant="outline">
+                  More about me
+                </Button>
+              </div>
             </div>
-          </Reveal>
-
-          <Reveal direction="right" delay={120}>
-            {/* Framed high so the wide arch crops to head and shoulders
-                rather than through the middle of the portrait. */}
-            <div className="h-[26rem] overflow-hidden rounded-t-full rounded-b-lg bg-linen">
-              <Image
-                src="/images/headshot.jpg"
-                alt={site.practitioner}
-                width={675}
-                height={900}
-                className="h-full w-full object-cover"
-                style={{ objectPosition: "50% 55%" }}
-              />
-            </div>
-          </Reveal>
-        </div>
-      </Section>
-
-      {/* ---------- Multilingual therapy ---------- */}
-      <Section className="bg-linen">
-        <Reveal className="mx-auto max-w-4xl text-center">
-          <Eyebrow>Multilingual Therapy</Eyebrow>
-          <h2 className="mt-6 font-display text-4xl leading-[1.15] text-raisin md:text-5xl lg:text-6xl">
-            {multilingualTeaser}
-          </h2>
+          </Panel>
         </Reveal>
       </Section>
 
       {/* ---------- Areas I work with ---------- */}
-      <Section>
-        <Reveal>
+      <Section className="bg-linen">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>How I can help</Eyebrow>
-          <h2 className="mt-4 max-w-xl font-display text-3xl leading-snug text-raisin md:text-4xl">
+          <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-[44px] md:leading-[1.15]">
             Areas I work with most often
           </h2>
         </Reveal>
-        <Reveal delay={120} className="mt-12">
-          <ul className="grid gap-x-10 gap-y-4 sm:grid-cols-2 lg:grid-cols-3">
-            {areasIWorkWith.map((area) => (
-              <li
-                key={area}
-                className="flex items-baseline gap-3 text-base text-ink-muted"
-              >
-                <span className="h-1.5 w-1.5 shrink-0 translate-y-[-2px] rounded-full bg-coffee" />
-                {area}
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-        <Reveal delay={200} className="mt-14">
+
+        {/* Each area sits on its own card */}
+        <ul className="mt-12 flex flex-wrap justify-center gap-4 md:mt-14 md:gap-5">
+          {areasIWorkWith.map((area, i) => (
+            <Reveal
+              as="li"
+              key={area.label}
+              delay={i * 90}
+              className="w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] lg:w-[calc(20%-1rem)]"
+            >
+              <div className="flex h-full flex-col items-center rounded-2xl border border-parchment bg-porcelain px-4 py-8 text-center transition-shadow duration-300 hover:shadow-[0_14px_30px_-22px_rgba(79,51,33,0.5)] md:py-10">
+                <AreaIcon
+                  name={area.icon}
+                  className="h-20 w-20 md:h-[5.5rem] md:w-[5.5rem]"
+                />
+                <h3 className="mt-5 max-w-[10rem] font-display text-lg leading-snug text-raisin md:text-[21px]">
+                  {area.label}
+                </h3>
+              </div>
+            </Reveal>
+          ))}
+        </ul>
+
+        <Reveal delay={200} className="mt-12 text-center md:mt-14">
           <Button href="/services" variant="outline">
-            All services
+            Get to know more
           </Button>
         </Reveal>
       </Section>
 
-      {/* ---------- Process ---------- */}
-      <Section className="bg-noir text-salt">
+      {/* ---------- Multilingual ---------- */}
+      <Section>
         <Reveal>
-          <h2 className="font-display text-4xl leading-snug md:text-5xl">
+          <Panel tone="green" className="text-center md:px-16 md:py-16">
+            <Eyebrow dark>Multilingual Therapy</Eyebrow>
+            <h2 className="mx-auto mt-5 max-w-3xl font-display text-3xl leading-[1.2] text-salt md:text-5xl">
+              {multilingualTeaser}
+            </h2>
+            <ul className="mt-8 flex flex-wrap justify-center gap-3">
+              {languages.map((language) => (
+                <li key={language}>
+                  <Pill className="bg-salt/15 text-blush ring-1 ring-salt/25">
+                    {language}
+                  </Pill>
+                </li>
+              ))}
+            </ul>
+          </Panel>
+        </Reveal>
+      </Section>
+
+      {/* ---------- What to Expect ---------- */}
+      <Section className="bg-linen">
+        <Reveal className="text-center">
+          <Eyebrow>Getting started</Eyebrow>
+          <h2 className="mt-4 font-display text-4xl leading-tight text-raisin md:text-[52px]">
             What to Expect
           </h2>
         </Reveal>
-        <div className="mt-14 grid gap-10 md:grid-cols-3">
+        <ol className="mt-12 grid gap-5 md:grid-cols-3 md:gap-6">
           {process.map((p, i) => (
-            <Reveal key={p.n} delay={i * 130}>
-              <span className="font-display text-3xl text-ember">{p.n}</span>
-              <h3 className="mt-3 font-display text-2xl">{p.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-salt/70">
-                {p.body}
-              </p>
+            <Reveal as="li" key={p.n} delay={i * 130}>
+              <Panel className="h-full md:p-9">
+                <span className="font-display text-[34px] leading-none text-clay">
+                  {p.n}
+                </span>
+                <h3 className="mt-5 font-display text-[26px] leading-snug text-raisin">
+                  {p.title}
+                </h3>
+                <p className="mt-2.5 text-[15.5px] leading-[1.75] text-ink-muted">
+                  {p.body}
+                </p>
+              </Panel>
             </Reveal>
           ))}
-        </div>
+        </ol>
       </Section>
 
       {/* ---------- Closing CTA ---------- */}
-      <Section className="bg-gradient-to-br from-parchment via-shell to-mist/70 text-center">
+      <Section>
         <Reveal>
-          <p className="mx-auto max-w-xl font-display text-2xl leading-snug text-raisin md:text-3xl">
-            {closing}
-          </p>
-          <div className="mt-10">
-            <Button href="/contact">Get in touch</Button>
-          </div>
+          <Panel tone="apricot" className="text-center md:px-20 md:py-16">
+            <p className="mx-auto max-w-2xl font-display text-[28px] leading-[1.25] text-cocoa md:text-[40px]">
+              {closing}
+            </p>
+            <div className="mt-9">
+              <Button href="/contact">Get in touch</Button>
+            </div>
+          </Panel>
         </Reveal>
       </Section>
     </main>

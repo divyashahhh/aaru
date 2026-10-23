@@ -16,13 +16,12 @@ export function ContactForm() {
 
   const mailto = `mailto:${site.email}?subject=${encodeURIComponent(
     `Enquiry from ${name || "the website"}`,
-  )}&body=${encodeURIComponent(
-    `${message}\n\n${name}\n${email}`,
-  )}`;
+  )}&body=${encodeURIComponent(`${message}\n\n${name}\n${email}`)}`;
 
+  /* 16px text keeps iOS Safari from zooming in when a field is focused */
   const field =
-    "mt-2 w-full rounded-lg border border-taupe/40 bg-cream px-4 py-3 text-base text-ink outline-none transition-colors focus:border-sage";
-  const label = "text-xs uppercase tracking-[0.16em] text-ink-muted";
+    "mt-2.5 block w-full rounded-md border border-parchment bg-blush/60 px-4 py-3.5 text-base text-raisin outline-none transition-colors focus:border-coffee focus:bg-white";
+  const label = "text-xs font-medium uppercase tracking-[0.14em] text-label";
 
   return (
     <form
@@ -30,33 +29,39 @@ export function ContactForm() {
         e.preventDefault();
         window.location.href = mailto;
       }}
-      className="max-w-lg"
+      className="min-w-0"
     >
-      <div>
-        <label className={label} htmlFor="name">
-          Your name
-        </label>
-        <input
-          id="name"
-          className={field}
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-      </div>
+      <h2 className="mb-8 font-display text-[32px] leading-tight text-raisin">
+        Send an enquiry
+      </h2>
 
-      <div className="mt-6">
-        <label className={label} htmlFor="email">
-          Email
-        </label>
-        <input
-          id="email"
-          type="email"
-          className={field}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+      <div className="grid gap-6 sm:grid-cols-2">
+        <div>
+          <label className={label} htmlFor="name">
+            Your name
+          </label>
+          <input
+            id="name"
+            className={field}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+
+        <div>
+          <label className={label} htmlFor="email">
+            Email
+          </label>
+          <input
+            id="email"
+            type="email"
+            className={field}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
       </div>
 
       <div className="mt-6">
@@ -65,27 +70,26 @@ export function ContactForm() {
         </label>
         <textarea
           id="message"
-          rows={5}
+          rows={6}
           className={field}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           required
         />
-        <p className="mt-2 text-xs leading-relaxed text-ink-muted">
+        <p className="mt-3 text-sm leading-relaxed text-ink-muted">
           A sentence or two is plenty. Please don&rsquo;t include sensitive
-          personal or medical detail. We can cover that safely in
-          conversation.
+          personal or medical detail. We can cover that safely in conversation.
         </p>
       </div>
 
       <button
         type="submit"
-        className="mt-8 rounded-full bg-sage px-8 py-3 text-xs uppercase tracking-[0.18em] text-cream transition-all duration-200 hover:-translate-y-0.5 hover:bg-sage-deep hover:shadow-md active:translate-y-0"
+        className="mt-8 rounded-md bg-coffee px-8 py-4 text-[12px] font-medium uppercase tracking-[0.14em] text-salt transition-colors hover:bg-cocoa md:text-[13px]"
       >
         Send message
       </button>
 
-      <p className="mt-4 text-xs text-ink-muted">
+      <p className="mt-4 text-[13.5px] leading-relaxed text-ink-muted">
         This opens your own email app so you can review the message before
         sending.
       </p>

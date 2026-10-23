@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
-import { Button, Eyebrow, Section } from "@/components/ui";
+import { Button, Eyebrow, Panel, Pill, Section } from "@/components/ui";
 import {
   areasOfInterest,
   ethics,
@@ -9,6 +10,7 @@ import {
   fees,
   forWhom,
   forWhomIntro,
+  languages,
   servicesIntro,
   site,
 } from "@/content/site";
@@ -21,115 +23,123 @@ export const metadata: Metadata = {
 export default function Services() {
   return (
     <main>
-      {/* A page opening rather than a contents page: the jump links only
-          repeated the headings a reader meets moments later. */}
-      <Section className="bg-shell">
-        <Reveal className="mx-auto max-w-3xl text-center">
-          <Eyebrow>Services</Eyebrow>
-          <h1 className="mt-5 font-display text-4xl leading-[1.12] text-raisin md:text-6xl">
-            Whatever brings you here
-          </h1>
-          <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-ink-muted">
-            {servicesIntro}
-          </p>
-        </Reveal>
+      {/* ---------- Opening ---------- */}
+      <Section className="bg-linen">
+        <div className="grid items-center gap-10 md:grid-cols-[1.25fr_1fr] md:gap-16">
+          <Panel className="a-rise md:p-12">
+            <Eyebrow>Services</Eyebrow>
+            <h1 className="mt-5 font-display text-[2.75rem] leading-[1.05] text-raisin md:text-[64px]">
+              Whatever brings you here
+            </h1>
+            <p className="mt-6 text-[17px] leading-[1.8] text-label">
+              {servicesIntro}
+            </p>
+          </Panel>
+          <div
+            className="a-rise clip-safe relative mx-auto h-[24rem] w-full max-w-[26rem] overflow-hidden rounded-2xl md:h-[34rem]"
+            style={{ animationDelay: "200ms" }}
+          >
+            <Image
+              src="/images/services-alcove.jpg"
+              alt="A small plant in a softly lit wooden alcove"
+              fill
+              priority
+              sizes="(min-width: 768px) 26rem, 100vw"
+              className="object-cover object-[50%_40%]"
+            />
+          </div>
+        </div>
       </Section>
 
       {/* ---------- For whom? ---------- */}
       <Section id="for-whom">
-        <Reveal>
+        <Reveal className="mx-auto max-w-3xl text-center">
           <Eyebrow>For whom?</Eyebrow>
-          <h2 className="mt-4 max-w-lg font-display text-3xl leading-snug text-raisin md:text-4xl">
+          <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-[46px] md:leading-[1.15]">
             Who I work with
           </h2>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink">
+          <p className="mt-5 font-display text-[21px] leading-[1.45] text-label md:text-[25px]">
             {forWhomIntro}
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-10 md:grid-cols-2">
+        <div className="mt-12 grid gap-5 md:mt-14 md:grid-cols-2 md:gap-6">
           {forWhom.map((group, i) => (
-            <Reveal
-              key={group.title}
-              delay={i * 130}
-              className="rounded-lg border border-taupe/25 bg-cream p-8 transition-all duration-200 hover:-translate-y-1 hover:border-coffee/40 hover:shadow-lg"
-            >
-              <h3 className="font-display text-2xl text-ink">{group.title}</h3>
-              <div className="mt-4 space-y-4">
-                {group.paragraphs.map((paragraph, j) => (
-                  <p
-                    key={j}
-                    className="text-base leading-relaxed text-ink-muted"
-                  >
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
+            <Reveal as="article" key={group.title} delay={i * 130}>
+              <Panel
+                tone={i === 0 ? "warm" : "light"}
+                className="h-full md:p-10"
+              >
+                <h3 className="font-display text-[30px] leading-snug text-raisin">
+                  {group.title}
+                </h3>
+                <div className="mt-4 space-y-3.5">
+                  {group.paragraphs.map((paragraph, j) => (
+                    <p key={j} className="text-base leading-[1.8] text-label">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </Panel>
             </Reveal>
           ))}
         </div>
       </Section>
 
       {/* ---------- Particular areas of interest ---------- */}
-      <Section id="areas-of-interest" className="bg-sand/40">
-        <Reveal>
+      <Section id="areas-of-interest" className="bg-linen">
+        <Reveal className="text-center">
           <Eyebrow>Particular areas of interest</Eyebrow>
-          <h2 className="mt-4 max-w-lg font-display text-3xl leading-snug text-raisin md:text-4xl">
+          <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-[46px] md:leading-[1.15]">
             Where I have particular experience
           </h2>
         </Reveal>
 
-        <div className="mt-12 space-y-8">
+        <div className="mt-12 space-y-5 md:mt-14 md:space-y-6">
           {areasOfInterest.map((area, i) => (
-            <Reveal
-              key={area.title}
-              delay={i * 130}
-              className={
-                area.featured
-                  ? "rounded-2xl border-2 border-coffee/70 bg-coffee p-8 text-cream shadow-xl transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl md:p-12"
-                  : "rounded-2xl border border-taupe/25 bg-cream p-8 transition-all duration-200 hover:-translate-y-1 hover:border-coffee/40 hover:shadow-lg md:p-10"
-              }
-            >
-              <div className="grid gap-6 md:grid-cols-[1fr_2fr]">
+            <Reveal key={area.title} delay={i * 130}>
+              <Panel
+                tone={area.featured ? "green" : "light"}
+                className="grid gap-8 md:grid-cols-[1fr_2fr] md:gap-14 md:p-14"
+              >
                 <div>
                   <h3
-                    className={`font-display text-2xl md:text-3xl ${
-                      area.featured ? "text-cream" : "text-ink"
+                    className={`font-display text-[30px] leading-[1.15] md:text-[34px] ${
+                      area.featured ? "text-salt" : "text-raisin"
                     }`}
                   >
                     {area.title}
                   </h3>
-                  {area.subtitle ? (
-                    <p
-                      className={`mt-3 text-sm uppercase tracking-[0.1em] ${
-                        area.featured ? "text-cream/75" : "subtitle"
-                      }`}
-                    >
-                      {area.subtitle}
-                    </p>
+                  {area.featured ? (
+                    <ul className="mt-5 flex flex-wrap gap-2">
+                      {languages.map((language) => (
+                        <li key={language}>
+                          <Pill className="bg-salt/15 text-blush ring-1 ring-salt/25">
+                            {language}
+                          </Pill>
+                        </li>
+                      ))}
+                    </ul>
                   ) : null}
                   {area.intro ? (
-                    <p
-                      className={`mt-3 text-sm leading-relaxed ${
-                        area.featured ? "text-cream/85" : "text-ink-muted"
-                      }`}
-                    >
+                    <p className="mt-5 rounded-lg bg-blush p-5 text-[15px] leading-[1.75] text-label">
                       {area.intro}
                     </p>
                   ) : null}
                 </div>
-                <div
-                  className={`max-w-2xl space-y-4 ${
-                    area.featured ? "text-cream/90" : "text-ink-muted"
-                  }`}
-                >
+                <div className="space-y-4">
                   {area.paragraphs.map((paragraph, j) => (
-                    <p key={j} className="text-base leading-relaxed">
+                    <p
+                      key={j}
+                      className={`text-[16.5px] leading-[1.8] ${
+                        area.featured ? "text-blush" : "text-label"
+                      }`}
+                    >
                       {paragraph}
                     </p>
                   ))}
                 </div>
-              </div>
+              </Panel>
             </Reveal>
           ))}
         </div>
@@ -137,64 +147,84 @@ export default function Services() {
 
       {/* ---------- Fees ---------- */}
       <Section id="fees">
-        <Reveal>
-          <Eyebrow>Fees</Eyebrow>
-          <h2 className="mt-4 max-w-lg font-display text-3xl leading-snug text-raisin md:text-4xl">
-            What sessions cost
-          </h2>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-muted">
-            {feesIntro}
-          </p>
-        </Reveal>
+        <div className="grid gap-10 md:grid-cols-[0.9fr_1.5fr] md:gap-14">
+          <Reveal>
+            <Eyebrow>Fees</Eyebrow>
+            <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-[46px] md:leading-[1.15]">
+              What sessions cost
+            </h2>
+            <p className="mt-5 max-w-sm text-base leading-[1.75] text-ink-muted">
+              {feesIntro}
+            </p>
+          </Reveal>
 
-        <Reveal delay={120} className="mt-10 max-w-xl">
-          <dl className="divide-y divide-taupe/20 border-t border-taupe/20">
-            {fees.map((f) => (
-              <div
-                key={f.label}
-                className="flex items-baseline justify-between gap-6 py-5"
-              >
-                <dt className="text-base text-ink-muted">{f.label}</dt>
-                <dd className="font-display text-2xl text-coffee">{f.price}</dd>
-              </div>
-            ))}
-          </dl>
-          <p className="mt-6 text-sm leading-relaxed text-ink-muted">
-            {feesNote}
-          </p>
-        </Reveal>
+          <Reveal delay={120}>
+            <Panel className="md:p-8">
+              <dl className="divide-y divide-parchment">
+                {fees.map((f) => (
+                  <div
+                    key={f.label}
+                    className="flex items-baseline justify-between gap-5 py-5 first:pt-0"
+                  >
+                    <dt className="text-[15.5px] leading-snug text-raisin md:text-[17px]">
+                      {f.label}
+                    </dt>
+                    <dd className="shrink-0 font-display text-[28px] leading-none text-coffee md:text-[32px]">
+                      {f.price}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-5 border-t border-parchment pt-5 text-[14.5px] leading-[1.7] text-ink-muted">
+                {feesNote}
+              </p>
+            </Panel>
+          </Reveal>
+        </div>
       </Section>
 
       {/* ---------- Ethics, Confidentiality & Your Privacy ---------- */}
       <Section className="bg-linen">
-        <Reveal>
-          <Eyebrow>Ethics &amp; Privacy</Eyebrow>
-          <h2 className="mt-4 max-w-lg font-display text-3xl leading-snug text-raisin md:text-4xl">
-            {ethics.title}
-          </h2>
-        </Reveal>
-        <div className="mt-8 max-w-2xl space-y-5">
-          {ethics.paragraphs.map((paragraph, i) => (
-            <Reveal key={i} delay={i * 100}>
-              <p className="text-base leading-relaxed text-ink-muted">
-                {paragraph}
-              </p>
-            </Reveal>
-          ))}
+        <div className="grid gap-8 md:grid-cols-[0.9fr_1.5fr] md:gap-14">
+          <Reveal>
+            <Eyebrow>Ethics &amp; Privacy</Eyebrow>
+            <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-[44px] md:leading-[1.15]">
+              {ethics.title}
+            </h2>
+          </Reveal>
+          <Reveal delay={100}>
+            <Panel className="md:p-12">
+              <div className="divide-y divide-parchment">
+                {ethics.paragraphs.map((paragraph, i) => (
+                  <p
+                    key={i}
+                    className="py-5 text-[17px] leading-[1.85] text-label first:pt-0 last:pb-0"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </Panel>
+          </Reveal>
         </div>
       </Section>
 
-      <Section className="bg-sand/60 text-center">
-        <h2 className="mx-auto max-w-xl font-display text-3xl leading-snug text-ink md:text-4xl">
-          Not sure where you fit?
-        </h2>
-        <p className="mx-auto mt-5 max-w-md text-base leading-relaxed text-ink-muted">
-          That is a common place to start. A short conversation usually makes it
-          clearer.
-        </p>
-        <div className="mt-10">
-          <Button href="/contact">Get in touch</Button>
-        </div>
+      {/* ---------- Closing ---------- */}
+      <Section>
+        <Reveal>
+          <Panel tone="sage" className="text-center md:px-20 md:py-16">
+            <h2 className="font-display text-3xl leading-snug text-cocoa md:text-[46px] md:leading-[1.15]">
+              Not sure where you fit?
+            </h2>
+            <p className="mx-auto mt-5 max-w-md text-lg leading-[1.75] text-label">
+              That is a common place to start. A short conversation usually
+              makes it clearer.
+            </p>
+            <div className="mt-9">
+              <Button href="/contact">Get in touch</Button>
+            </div>
+          </Panel>
+        </Reveal>
       </Section>
     </main>
   );

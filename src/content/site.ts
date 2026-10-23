@@ -7,6 +7,8 @@
 
 export const site = {
   practice: "Aarushi Shah Therapy",
+  /* Centred wordmark in the site header */
+  wordmark: "Psychotherapy with Aarushi Shah",
   name: "Aarushi Shah",
   practitioner: "Aarushi Shah",
   initials: "AS",
@@ -16,15 +18,22 @@ export const site = {
   modality: "In person in London and online",
   email: "hello@aarushishahtherapy.com",
   phone: "+44 7837 210515",
+  phoneHref: "tel:+447837210515",
   /* Booking link for the Contact page, pending from client. */
   calendlyUrl: "[Calendly link pending]",
 };
 
-/* Contact is reached via the "Book a call" button, so it isn't repeated here. */
+/* Contact is reached via the "Book a call" link at the end of the bar. */
 export const nav = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
+  { href: "/services#fees", label: "Fees" },
+];
+
+export const announcement = [
+  "In person in London and online",
+  "Free 15-minute consultation",
 ];
 
 /*
@@ -46,7 +55,7 @@ export const credentials = [
 export const hero = {
   headline: "A space that is truly yours",
   subtext:
-    "Psychodynamic therapy for adolescents and adults from all backgrounds, offered online and in person.",
+    "Therapy for adolescents and adults from all backgrounds, offered online and in person.",
 };
 
 export const heroPhrases = [
@@ -70,17 +79,14 @@ export const welcome = {
   ],
 };
 
+/* Icons are drawn and animated in components/AreaIcon.tsx */
 export const areasIWorkWith = [
-  "Anxiety & Depression",
-  "Childhood Trauma",
-  "Family and Romantic Relationships",
-  "Low Mood & Self-worth",
-  "Race & Ethnicity",
-  "Grief & Bereavement",
-  "Sexual Assault",
-  "Life transitions",
-  "and more…",
-];
+  { label: "Anxiety, stress & depression", icon: "waves" },
+  { label: "Family, attachment & relationships", icon: "rings" },
+  { label: "Life transitions & uncertainty", icon: "compass" },
+  { label: "Identity & culture", icon: "globe" },
+  { label: "Reproductive & hormonal health", icon: "moon" },
+] as const;
 
 export const process = [
   {
@@ -91,7 +97,7 @@ export const process = [
   {
     n: "02",
     title: "A first conversation",
-    body: "A free 20-minute call to talk about what brings you here and whether we are a good fit.",
+    body: "A free 15-minute call to talk about what brings you here and whether we are a good fit.",
   },
   {
     n: "03",
@@ -107,39 +113,38 @@ export const closing =
 
 export const aboutOpening = {
   greeting: "About Aarushi",
-  body: "My path into psychotherapy grew from an interest in how people make sense of themselves, their relationships and the worlds they come from.",
+  body: "My path into psychotherapy grew from seeing how culture, family and earlier experiences shape us.",
 };
 
 export const journeyParagraphs = [
-  "I was born in India and grew up in Singapore, surrounded by different cultures, languages and ways of seeing the world.",
-  "Growing up between cultures made me curious about what it means to belong, and about the often complicated task of holding on to parts of where we come from while also becoming our own person.",
+  "I was born in India and grew up in Singapore. Growing up between cultures made me curious about what it means to belong, and about the often complicated task of holding on to parts of where we come from while also becoming our own person.",
   "Over time, I became increasingly interested in the forces that shape us: family expectations, gender roles, cultural and religious values, intergenerational patterns, relationships and the rapidly changing world around us. I was particularly drawn to the tensions that can arise between what we feel we owe others and what we want for ourselves.",
-  "My own experience of therapy showed me how powerful it can be to have a space where anger, sadness, uncertainty and contradiction do not need to be justified. What stayed with me most was not having someone provide the right answers, but being met with warmth, curiosity and a genuine interest in understanding my experience.",
-  "That continues to shape how I work today. I believe most of us are simply trying to make sense of our experiences; sometimes we just need the right relationship and enough space to begin speaking about them.",
+  "My own experience of therapy showed me how powerful it can be to have a space where anger, sadness, uncertainty and contradiction do not need to be justified.",
+  "I believe most of us are simply trying to make sense of our experiences; sometimes we just need the right relationship and enough space to begin speaking about them.",
 ];
 
-/* The phrase to bold, in place, within journeyParagraphs[2]. */
+/* The phrase to bold, in place, within journeyParagraphs[1]. */
 export const journeyBoldPhrase =
   "family expectations, gender roles, cultural and religious values, intergenerational patterns, relationships";
 
 export const sessionsFeel = [
   {
     title: "Psychodynamic",
-    body: "I mainly work psychodynamically, which means we pay attention to how your past may still be showing up in the present: in your relationships, your expectations of yourself, the roles you fall into, and the feelings that seem to repeat. Not everything is blamed on childhood but it means becoming curious about patterns that may have made sense once, but no longer serve you now.",
+    body: "I mainly work psychodynamically, which means we pay attention to how your past may still be showing up in the present: in your relationships, your expectations of yourself and the roles you fall into. Not everything is connected to childhood but it means becoming curious about patterns that may have made sense once, but no longer serve you now.",
   },
   {
     title: "Relational",
-    body: "I also work relationally, which means I see therapy as something we create together. The relationship between us matters. How it feels to be understood, misunderstood, close, guarded, uncertain or comfortable can all become part of the work, if useful. I aim to offer a warm and honest space where you can speak freely and where we can think together about what is happening for you.",
+    body: "I also work relationally, which means I see therapy as something we create together. The relationship between us matters. How it feels to be understood, misunderstood, close, guarded, uncertain or comfortable can all become part of the work, if useful.",
   },
   {
     title: "What that can look like",
-    body: "Sessions are a natural conversation, moving at your pace and shaped by what you want to explore. There is no right way to do therapy, and you do not need to arrive knowing what to say. If this is your first time in therapy, we can simply figure it out together as we go.",
+    body: "Sessions are a natural conversation, moving at your pace and shaped by what you want to explore. If this is your first time in therapy, we can simply figure it out together as we go.",
   },
 ];
 
 export const whoThisIsFor = [
-  "For some people, asking for help can bring up shame. You may feel like nothing is \"wrong enough\" to justify therapy, worry about what others would think if they knew, or feel guilty for talking to someone outside your family about things you were taught to keep private. At its simplest, it is a human conversation, a place to be listened to, understood and taken seriously.",
-  "If you are looking for someone you do not have to defend or explain yourself to and who can offer a warm space to explore your experiences and understand yourself more deeply in the context of your culture and background, you are very welcome to get in touch.",
+  "For some people, asking for help can bring up shame. You may feel like nothing is \"wrong enough\" to justify therapy or feel guilty for talking to someone outside your family about things you were taught to keep private. At its simplest, it is a human conversation, a place to be listened to, understood and taken seriously.",
+  "If you are looking for a warm space where you do not have to explain or defend yourself, and where your culture and background are understood, you are very welcome to get in touch.",
 ];
 
 export const qualifications = [
@@ -203,7 +208,7 @@ export const feesIntro =
 export const fees = [
   { label: "Initial consultation (15 mins)", price: "Free" },
   { label: "Individual session, in person or online (50 mins)", price: "£75" },
-  { label: "Low-cost counselling for students", price: "£40" },
+  { label: "Low-cost counselling for students (50 mins)", price: "£40" },
 ];
 
 export const feesNote =

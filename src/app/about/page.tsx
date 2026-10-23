@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
-import { Button, Eyebrow, Section } from "@/components/ui";
+import { Button, Eyebrow, Panel, Section } from "@/components/ui";
 import {
   aboutOpening,
   journeyBoldPhrase,
@@ -17,108 +17,110 @@ export const metadata: Metadata = {
   description: "About the practitioner, training and therapeutic approach.",
 };
 
+/* Each approach card gets its own warm tint so the three read as a set */
+const approachTints = ["bg-porcelain", "bg-sage-tint", "bg-blush"];
+
 export default function About() {
   return (
     <main>
       {/* ---------- Opening ---------- */}
-      <div className="relative overflow-hidden bg-noir text-salt">
-        <div
-          aria-hidden
-          className="a-bloom absolute -right-32 -top-24 h-[30rem] w-[30rem] rounded-full bg-coffee/60"
-        />
-        <div
-          aria-hidden
-          className="a-bloom absolute -left-24 bottom-[-14rem] h-[26rem] w-[26rem] rounded-full bg-olive/70"
-          style={{ animationDelay: "-7s" }}
-        />
+      <Section className="bg-linen">
+        <div className="grid items-center gap-10 md:grid-cols-[1.1fr_1fr] md:gap-16">
+          <Panel className="a-rise md:p-12">
+            <Eyebrow>About</Eyebrow>
+            <h1 className="mt-5 font-display text-[2.75rem] leading-[1.05] text-raisin md:text-[64px]">
+              {aboutOpening.greeting}
+            </h1>
+            <p className="mt-6 font-display text-[22px] leading-[1.45] text-label md:text-[26px]">
+              {aboutOpening.body}
+            </p>
+            <div className="mt-9">
+              <Button href="/contact">Book a free consultation</Button>
+            </div>
+          </Panel>
 
-        <div className="relative mx-auto max-w-3xl px-6 py-24 md:px-12 lg:px-20 lg:py-28">
-          <h1
-            className="a-rise font-display text-5xl leading-[1.1] md:text-6xl"
-            style={{ animationDelay: "120ms" }}
-          >
-            {aboutOpening.greeting}
-          </h1>
-          <p
-            className="a-rise mt-7 max-w-md text-lg leading-relaxed text-salt/75"
-            style={{ animationDelay: "260ms" }}
-          >
-            {aboutOpening.body}
-          </p>
-
+          {/* Pre-cropped to head, shoulders and chest */}
           <div
-            className="a-rise mt-10 h-[22rem] max-w-sm overflow-hidden rounded-t-full rounded-b-lg"
-            style={{ animationDelay: "380ms" }}
+            className="a-rise clip-safe mx-auto w-full max-w-[26rem] overflow-hidden rounded-2xl"
+            style={{ animationDelay: "200ms" }}
           >
             <Image
-              src="/images/headshot.jpg"
+              src="/images/headshot-about.jpg"
               alt="Portrait of Aarushi Shah"
-              width={675}
-              height={900}
-              className="h-full w-full object-cover"
+              width={550}
+              height={550}
               priority
+              sizes="(min-width: 768px) 26rem, 100vw"
+              className="aspect-[4/5] w-full object-cover object-[50%_35%]"
             />
           </div>
         </div>
-      </div>
+      </Section>
 
       {/* ---------- My Journey ---------- */}
       <Section>
-        <Reveal>
-          <Eyebrow>My Journey</Eyebrow>
-          <h2 className="mt-4 max-w-lg font-display text-3xl leading-snug text-raisin md:text-4xl">
-            How this practice came to be
-          </h2>
-        </Reveal>
+        <div className="grid gap-8 md:grid-cols-[0.8fr_1.6fr] md:gap-14">
+          <Reveal className="md:sticky md:top-8 md:self-start">
+            <Eyebrow>My Journey</Eyebrow>
+            <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-[44px] md:leading-[1.15]">
+              How this practice came to be
+            </h2>
+          </Reveal>
 
-        <div className="mt-12 max-w-2xl space-y-6">
-          {journeyParagraphs.map((paragraph, i) => {
-            const [before, after] = paragraph.includes(journeyBoldPhrase)
-              ? paragraph.split(journeyBoldPhrase)
-              : [paragraph, undefined];
-            return (
-              <Reveal key={i} delay={i * 100}>
-                <p className="text-base leading-relaxed text-ink-muted">
-                  {after === undefined ? (
-                    before
-                  ) : (
-                    <>
-                      {before}
-                      <strong className="font-semibold text-raisin">
-                        {journeyBoldPhrase}
-                      </strong>
-                      {after}
-                    </>
-                  )}
-                </p>
-              </Reveal>
-            );
-          })}
+          <Reveal delay={100}>
+            <Panel className="md:p-12">
+              <div className="divide-y divide-parchment">
+                {journeyParagraphs.map((paragraph, i) => {
+                  const [before, after] = paragraph.includes(journeyBoldPhrase)
+                    ? paragraph.split(journeyBoldPhrase)
+                    : [paragraph, undefined];
+                  return (
+                    <p
+                      key={i}
+                      className="py-5 text-[17px] leading-[1.85] text-label first:pt-0 last:pb-0"
+                    >
+                      {after === undefined ? (
+                        before
+                      ) : (
+                        <>
+                          {before}
+                          <strong className="font-semibold text-cocoa">
+                            {journeyBoldPhrase}
+                          </strong>
+                          {after}
+                        </>
+                      )}
+                    </p>
+                  );
+                })}
+              </div>
+            </Panel>
+          </Reveal>
         </div>
       </Section>
 
       {/* ---------- What Sessions Feel Like ---------- */}
       <Section className="bg-linen">
-        <Reveal>
+        <Reveal className="text-center">
           <Eyebrow>My approach</Eyebrow>
-          <h2 className="mt-4 max-w-lg font-display text-3xl leading-snug text-raisin md:text-4xl">
+          <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-[46px] md:leading-[1.15]">
             What sessions feel like
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-3">
+        <div className="mt-12 grid gap-5 md:mt-14 md:grid-cols-3 md:gap-6">
           {sessionsFeel.map((part, i) => (
-            <Reveal
-              key={part.title}
-              delay={i * 130}
-              className="rounded-lg border border-taupe/25 bg-cream p-7 transition-all duration-200 hover:-translate-y-1 hover:border-coffee/40 hover:shadow-lg"
-            >
-              <h3 className="font-display text-2xl text-raisin">
-                {part.title}
-              </h3>
-              <p className="mt-4 text-base leading-relaxed text-ink-muted">
-                {part.body}
-              </p>
+            <Reveal key={part.title} delay={i * 130}>
+              <div
+                className={`h-full rounded-xl border border-parchment/70 p-6 md:rounded-2xl md:p-9 ${approachTints[i]}`}
+              >
+                <h3 className="font-display text-[28px] leading-snug text-raisin">
+                  {part.title}
+                </h3>
+                <p className="mt-4 text-base leading-[1.8] text-label">
+                  {part.body}
+                </p>
+              </div>
             </Reveal>
           ))}
         </div>
@@ -126,48 +128,52 @@ export default function About() {
 
       {/* ---------- Who this is for ---------- */}
       <Section>
-        <div className="mx-auto max-w-2xl">
-          <Reveal>
-            <Eyebrow>A note on asking for help</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-4xl">
-              Who this is for
-            </h2>
-          </Reveal>
-          <div className="mt-8 space-y-6">
-            {whoThisIsFor.map((paragraph, i) => (
-              <Reveal key={i} delay={i * 100}>
-                <p className="text-base leading-relaxed text-ink-muted">
-                  {paragraph}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
+        <Reveal>
+          <Panel tone="dark" className="md:p-14">
+            <div className="grid gap-8 md:grid-cols-[0.8fr_1.6fr] md:gap-14">
+              <div>
+                <Eyebrow dark>A note on asking for help</Eyebrow>
+                <h2 className="mt-4 font-display text-3xl leading-snug text-salt md:text-[44px] md:leading-[1.15]">
+                  Who this is for
+                </h2>
+              </div>
+              <div className="space-y-5">
+                {whoThisIsFor.map((paragraph, i) => (
+                  <p key={i} className="text-[17px] leading-[1.85] text-blush">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </Panel>
+        </Reveal>
       </Section>
 
       {/* ---------- Qualifications & Registration ---------- */}
       <Section className="bg-linen">
-        <div className="grid gap-16 md:grid-cols-[0.8fr_1fr]">
+        <div className="grid gap-10 md:grid-cols-[0.8fr_1.6fr] md:gap-14">
           <Reveal>
             <Eyebrow>Qualifications</Eyebrow>
-            <h2 className="mt-4 font-display text-3xl leading-snug text-raisin">
+            <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-[44px] md:leading-[1.15]">
               Qualifications &amp; registration
             </h2>
           </Reveal>
           <div>
-            <ul className="divide-y divide-antique/25 border-t border-antique/25">
+            <ul className="divide-y divide-parchment rounded-xl border border-parchment/80 bg-porcelain px-6 md:rounded-2xl md:px-8">
               {qualifications.map((item, i) => (
                 <Reveal as="li" key={item + i} delay={i * 100}>
-                  <span className="flex gap-5 py-5">
-                    <span className="font-display text-xl text-clay">
+                  <span className="flex items-baseline gap-5 py-5">
+                    <span className="shrink-0 font-display text-[22px] text-clay">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="text-base text-ink-muted">{item}</span>
+                    <span className="text-[15.5px] leading-snug text-raisin md:text-[17px]">
+                      {item}
+                    </span>
                   </span>
                 </Reveal>
               ))}
             </ul>
-            <Reveal delay={200} className="mt-10">
+            <Reveal delay={200} className="mt-9">
               <Button href="/contact">Book a free consultation</Button>
             </Reveal>
           </div>

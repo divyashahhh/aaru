@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { EB_Garamond, Work_Sans } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -18,7 +18,12 @@ const workSans = Work_Sans({
 export const metadata: Metadata = {
   title: `${site.practice} | ${site.discipline} in ${site.location}`,
   description:
-    "Psychodynamic therapy for adolescents and adults from all backgrounds, offered online and in person.",
+    "Therapy for adolescents and adults from all backgrounds, offered online and in person.",
+};
+
+/* Tints Safari's toolbar and status bar to match the announcement bar. */
+export const viewport: Viewport = {
+  themeColor: "#e6e4cf",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
