@@ -18,34 +18,21 @@ export const metadata: Metadata = {
   description: "Who I work with, areas of particular interest, and fees.",
 };
 
-const inPageNav = [
-  { href: "#for-whom", label: "For whom?" },
-  { href: "#areas-of-interest", label: "Particular areas of interest" },
-  { href: "#fees", label: "Fees" },
-];
-
 export default function Services() {
   return (
     <main>
+      {/* A page opening rather than a contents page: the jump links only
+          repeated the headings a reader meets moments later. */}
       <Section className="bg-shell">
-        <Eyebrow>Services</Eyebrow>
-        <h1 className="mt-4 max-w-2xl font-display text-4xl leading-snug text-ink md:text-5xl">
-          Areas I work with
-        </h1>
-        <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-muted">
-          {servicesIntro}
-        </p>
-        <nav className="mt-10 inline-flex flex-wrap gap-1.5 rounded-full border border-taupe/25 bg-cream p-1.5">
-          {inPageNav.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-ink-muted transition-all duration-200 hover:bg-coffee hover:text-cream"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <Eyebrow>Services</Eyebrow>
+          <h1 className="mt-5 font-display text-4xl leading-[1.12] text-raisin md:text-6xl">
+            Whatever brings you here
+          </h1>
+          <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-ink-muted">
+            {servicesIntro}
+          </p>
+        </Reveal>
       </Section>
 
       {/* ---------- For whom? ---------- */}

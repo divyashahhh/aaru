@@ -20,11 +20,11 @@ export const site = {
   calendlyUrl: "[Calendly link pending]",
 };
 
+/* Contact is reached via the "Book a call" button, so it isn't repeated here. */
 export const nav = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/contact", label: "Contact" },
 ];
 
 /*
@@ -145,7 +145,7 @@ export const whoThisIsFor = [
 export const qualifications = [
   "BA Psychology (Hons), Yale-NUS College, National University of Singapore",
   "MA Psychodynamic Counselling and Psychotherapy",
-  "BACP Registered Member (Membership No: [pending])",
+  "BACP Registered Member",
 ];
 
 /* ---------- Services ---------- */
