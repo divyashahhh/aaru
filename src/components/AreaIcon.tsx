@@ -58,11 +58,7 @@ const icons: Record<AreaIconName, React.ReactNode> = {
           d={wave(32, 3.5)}
           stroke={C.ember}
         />
-        <path
-          className="ai-wave ai-wave-3"
-          d={wave(41, 2)}
-          stroke={C.moss}
-        />
+        <path className="ai-wave ai-wave-3" d={wave(41, 2)} stroke={C.moss} />
       </g>
       <circle
         cx="32"
@@ -93,13 +89,7 @@ const icons: Record<AreaIconName, React.ReactNode> = {
           r="11"
           stroke={C.stroke}
         />
-        <circle
-          className="ai-ring-r"
-          cx="38"
-          cy="32"
-          r="11"
-          stroke={C.moss}
-        />
+        <circle className="ai-ring-r" cx="38" cy="32" r="11" stroke={C.moss} />
       </g>
       <circle className="ai-pulse" cx="32" cy="32" r="2.6" fill={C.ember} />
     </>

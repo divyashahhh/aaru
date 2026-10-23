@@ -20,7 +20,7 @@ export function ContactForm() {
 
   /* 16px text keeps iOS Safari from zooming in when a field is focused */
   const field =
-    "mt-2.5 block w-full rounded-md border border-parchment bg-blush/60 px-4 py-3.5 text-base text-raisin outline-none transition-colors focus:border-coffee focus:bg-white";
+    "mt-2.5 block w-full rounded border border-rule bg-salt px-4 py-3.5 text-base text-raisin outline-none transition-colors focus:border-coffee focus:bg-white";
   const label = "text-xs font-medium uppercase tracking-[0.14em] text-label";
 
   return (
@@ -84,7 +84,7 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="mt-8 rounded-md bg-coffee px-8 py-4 text-[12px] font-medium uppercase tracking-[0.14em] text-salt transition-colors hover:bg-cocoa md:text-[13px]"
+        className="mt-8 rounded bg-raisin px-8 py-4 text-[12px] font-medium uppercase tracking-[0.14em] text-salt transition-colors hover:bg-noir md:text-[13px]"
       >
         Send message
       </button>

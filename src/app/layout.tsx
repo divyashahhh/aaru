@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 /* Tints Safari's toolbar and status bar to match the announcement bar. */
 export const viewport: Viewport = {
-  themeColor: "#e6e4cf",
+  themeColor: "#464831",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -1,13 +1,12 @@
 import Image from "next/image";
 import { AreaIcon } from "@/components/AreaIcon";
 import { Reveal } from "@/components/Reveal";
-import { Button, Eyebrow, Panel, Pill, Section } from "@/components/ui";
+import { Button, Eyebrow, Section } from "@/components/ui";
 import {
   areasIWorkWith,
   closing,
   hero,
   heroPhrases,
-  languages,
   multilingualTeaser,
   process,
   welcome,
@@ -16,16 +15,22 @@ import {
 export default function Home() {
   return (
     <main>
-      {/* ---------- Hero ---------- */}
+      {/* ---------- Hero: the photo's own wall colour continues under the text ---------- */}
       <section
-        className="px-5 py-14 md:px-12 md:py-20 lg:px-20"
+        className="flex flex-col md:flex-row"
         style={{
           background:
-            "radial-gradient(120% 95% at 85% 15%, #86603f 0%, #634530 45%, #3d2b1f 100%)",
+            "linear-gradient(180deg, #70491c 0%, #66421a 28%, #4a2e12 44%, #4a2e12 70%, #583914 84%, #573815 100%)",
         }}
       >
-        <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
-          <div className="min-w-0">
+        <div
+          className="flex min-w-0 flex-1 items-center px-6 py-16 md:py-28 md:pl-12 md:pr-10 lg:pl-[max(5rem,calc((100%-72rem)/2))]"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(26,15,5,0.6) 0%, rgba(26,15,5,0.42) 55%, rgba(26,15,5,0) 100%)",
+          }}
+        >
+          <div className="w-full min-w-0 max-w-[36rem]">
             {/* Solid and pulsing so it's the first thing the eye lands on */}
             <span className="a-rise inline-flex items-center gap-3 rounded-full bg-salt px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-coffee shadow-lg shadow-black/25 ring-4 ring-ember/35">
               <span className="relative flex h-2.5 w-2.5 shrink-0">
@@ -43,24 +48,31 @@ export default function Home() {
             </h1>
 
             <p
-              className="a-rise mt-6 max-w-[30rem] text-lg leading-relaxed text-blush/90"
+              className="a-rise mt-6 text-left text-[14.5px] font-medium leading-relaxed tracking-[0.03em] text-ember"
               style={{ animationDelay: "200ms" }}
+            >
+              {heroPhrases.map((phrase, i) => (
+                <span key={phrase}>
+                  <span className="whitespace-nowrap">{phrase}</span>
+                  {/* Real spaces either side so the line can wrap here */}
+                  {i < heroPhrases.length - 1 ? (
+                    <>
+                      {" "}
+                      <span aria-hidden className="px-1 text-ember/60">
+                        ·
+                      </span>{" "}
+                    </>
+                  ) : null}
+                </span>
+              ))}
+            </p>
+
+            <p
+              className="a-rise mt-5 max-w-[30rem] text-lg leading-relaxed text-linen"
+              style={{ animationDelay: "280ms" }}
             >
               {hero.subtext}
             </p>
-
-            <ul
-              className="a-rise mt-7 flex flex-wrap gap-2.5"
-              style={{ animationDelay: "280ms" }}
-            >
-              {heroPhrases.map((phrase) => (
-                <li key={phrase}>
-                  <Pill className="border border-apricot/30 bg-salt/10 text-apricot">
-                    {phrase}
-                  </Pill>
-                </li>
-              ))}
-            </ul>
 
             <div
               className="a-rise mt-10 flex flex-wrap gap-3.5"
@@ -74,53 +86,48 @@ export default function Home() {
               </Button>
             </div>
           </div>
+        </div>
 
-          <div
-            className="a-rise clip-safe relative mx-auto h-[26rem] w-full max-w-[24rem] overflow-hidden rounded-2xl ring-1 ring-apricot/20 md:h-[36rem] md:max-w-[28rem]"
-            style={{ animationDelay: "240ms" }}
-          >
-            <Image
-              src="/images/hero-room.jpg"
-              alt="A warmly lit room with a cane armchair, a small side table and dried pampas in a vase"
-              fill
-              priority
-              sizes="(min-width: 768px) 28rem, 100vw"
-              className="-scale-x-100 object-cover object-[50%_72%]"
-            />
-          </div>
+        <div className="fade-left relative min-h-[24rem] flex-1 overflow-hidden md:min-h-[44rem]">
+          <Image
+            src="/images/hero-room.jpg"
+            alt="A warmly lit room with a cane armchair, a small side table and dried pampas in a vase"
+            fill
+            priority
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="-scale-x-100 object-cover object-[50%_72%]"
+          />
         </div>
       </section>
 
       {/* ---------- Welcome ---------- */}
       <Section>
-        <Reveal>
-          <Panel className="grid gap-8 md:grid-cols-[1fr_1.15fr] md:gap-16 md:p-14">
-            <div>
-              <Eyebrow>{welcome.heading}</Eyebrow>
-              <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-[40px] md:leading-[1.2]">
-                {welcome.subhead}
-              </h2>
+        <div className="grid gap-10 md:grid-cols-[1fr_1.1fr] md:gap-20">
+          <Reveal>
+            <Eyebrow>{welcome.heading}</Eyebrow>
+            <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-[40px] md:leading-[1.2]">
+              {welcome.subhead}
+            </h2>
+          </Reveal>
+          <Reveal delay={120} className="md:border-l md:border-rule md:pl-12">
+            <div className="space-y-5">
+              {welcome.paragraphs.map((paragraph, i) => (
+                <p key={i} className="text-[17px] leading-[1.8] text-label">
+                  {paragraph}
+                </p>
+              ))}
             </div>
-            <div>
-              <div className="space-y-5">
-                {welcome.paragraphs.map((paragraph, i) => (
-                  <p key={i} className="text-[17px] leading-[1.8] text-label">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-              <div className="mt-8">
-                <Button href="/about" variant="outline">
-                  More about me
-                </Button>
-              </div>
+            <div className="mt-9">
+              <Button href="/about" variant="outline">
+                More about me
+              </Button>
             </div>
-          </Panel>
-        </Reveal>
+          </Reveal>
+        </div>
       </Section>
 
       {/* ---------- Areas I work with ---------- */}
-      <Section className="bg-linen">
+      <Section className="border-y border-parchment bg-linen">
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>How I can help</Eyebrow>
           <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-[44px] md:leading-[1.15]">
@@ -128,8 +135,8 @@ export default function Home() {
           </h2>
         </Reveal>
 
-        {/* Each area sits on its own card */}
-        <ul className="mt-12 flex flex-wrap justify-center gap-4 md:mt-14 md:gap-5">
+        {/* Each area on its own quiet tile */}
+        <ul className="mt-14 flex flex-wrap justify-center gap-4 md:mt-16 md:gap-5">
           {areasIWorkWith.map((area, i) => (
             <Reveal
               as="li"
@@ -137,12 +144,12 @@ export default function Home() {
               delay={i * 90}
               className="w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.7rem)] lg:w-[calc(20%-1rem)]"
             >
-              <div className="flex h-full flex-col items-center rounded-2xl border border-parchment bg-porcelain px-4 py-8 text-center transition-shadow duration-300 hover:shadow-[0_14px_30px_-22px_rgba(79,51,33,0.5)] md:py-10">
+              <div className="flex h-full flex-col items-center rounded-md border border-parchment bg-salt px-4 py-8 text-center transition-colors duration-300 hover:border-rule md:py-10">
                 <AreaIcon
                   name={area.icon}
                   className="h-20 w-20 md:h-[5.5rem] md:w-[5.5rem]"
                 />
-                <h3 className="mt-5 max-w-[10rem] font-display text-lg leading-snug text-raisin md:text-[21px]">
+                <h3 className="mt-5 max-w-[11rem] font-display text-lg leading-snug text-raisin md:text-[21px]">
                   {area.label}
                 </h3>
               </div>
@@ -150,7 +157,7 @@ export default function Home() {
           ))}
         </ul>
 
-        <Reveal delay={200} className="mt-12 text-center md:mt-14">
+        <Reveal delay={200} className="mt-14 text-center md:mt-16">
           <Button href="/services" variant="outline">
             Get to know more
           </Button>
@@ -158,64 +165,52 @@ export default function Home() {
       </Section>
 
       {/* ---------- Multilingual ---------- */}
-      <Section>
-        <Reveal>
-          <Panel tone="green" className="text-center md:px-16 md:py-16">
-            <Eyebrow dark>Multilingual Therapy</Eyebrow>
-            <h2 className="mx-auto mt-5 max-w-3xl font-display text-3xl leading-[1.2] text-salt md:text-5xl">
-              {multilingualTeaser}
-            </h2>
-            <ul className="mt-8 flex flex-wrap justify-center gap-3">
-              {languages.map((language) => (
-                <li key={language}>
-                  <Pill className="bg-salt/15 text-blush ring-1 ring-salt/25">
-                    {language}
-                  </Pill>
-                </li>
-              ))}
-            </ul>
-          </Panel>
+      <Section className="bg-olive" inner="max-w-3xl">
+        <Reveal className="text-center">
+          <Eyebrow dark>Multilingual Therapy</Eyebrow>
+          <h2 className="mt-5 font-display text-3xl leading-[1.2] text-salt md:text-5xl">
+            {multilingualTeaser}
+          </h2>
         </Reveal>
       </Section>
 
       {/* ---------- What to Expect ---------- */}
       <Section className="bg-linen">
-        <Reveal className="text-center">
-          <Eyebrow>Getting started</Eyebrow>
-          <h2 className="mt-4 font-display text-4xl leading-tight text-raisin md:text-[52px]">
+        <Reveal>
+          <h2 className="font-display text-4xl leading-tight text-raisin md:text-[52px]">
             What to Expect
           </h2>
         </Reveal>
-        <ol className="mt-12 grid gap-5 md:grid-cols-3 md:gap-6">
+        <div className="mt-12 grid gap-10 md:grid-cols-3 md:gap-12">
           {process.map((p, i) => (
-            <Reveal as="li" key={p.n} delay={i * 130}>
-              <Panel className="h-full md:p-9">
-                <span className="font-display text-[34px] leading-none text-clay">
-                  {p.n}
-                </span>
-                <h3 className="mt-5 font-display text-[26px] leading-snug text-raisin">
-                  {p.title}
-                </h3>
-                <p className="mt-2.5 text-[15.5px] leading-[1.75] text-ink-muted">
-                  {p.body}
-                </p>
-              </Panel>
+            <Reveal
+              key={p.n}
+              delay={i * 130}
+              className="border-t border-rule pt-7"
+            >
+              <span className="font-display text-[34px] leading-none text-clay">
+                {p.n}
+              </span>
+              <h3 className="mt-4 font-display text-[26px] leading-snug text-raisin">
+                {p.title}
+              </h3>
+              <p className="mt-2.5 text-[15.5px] leading-[1.75] text-ink-muted">
+                {p.body}
+              </p>
             </Reveal>
           ))}
-        </ol>
+        </div>
       </Section>
 
       {/* ---------- Closing CTA ---------- */}
-      <Section>
-        <Reveal>
-          <Panel tone="apricot" className="text-center md:px-20 md:py-16">
-            <p className="mx-auto max-w-2xl font-display text-[28px] leading-[1.25] text-cocoa md:text-[40px]">
-              {closing}
-            </p>
-            <div className="mt-9">
-              <Button href="/contact">Get in touch</Button>
-            </div>
-          </Panel>
+      <Section inner="max-w-3xl">
+        <Reveal className="text-center">
+          <p className="font-display text-[28px] leading-[1.25] text-raisin md:text-[42px]">
+            {closing}
+          </p>
+          <div className="mt-10">
+            <Button href="/contact">Get in touch</Button>
+          </div>
         </Reveal>
       </Section>
     </main>

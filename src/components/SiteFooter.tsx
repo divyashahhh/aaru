@@ -4,10 +4,10 @@ import { credentials, hero, nav, site } from "@/content/site";
 
 export function SiteFooter() {
   const heading =
-    "mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-dune";
+    "mb-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-mist";
 
   return (
-    <footer className="mt-auto bg-umber text-salt">
+    <footer className="mt-auto bg-raisin text-salt">
       <div className="px-6 pb-9 pt-16 md:px-12 md:pt-20 lg:px-20">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 border-b border-salt/15 pb-12 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_0.6fr]">
@@ -23,7 +23,7 @@ export function SiteFooter() {
                   <p className="font-display text-[28px] leading-none text-salt">
                     {site.name}
                   </p>
-                  <p className="mt-2 text-[10.5px] font-medium uppercase tracking-[0.42em] text-dune">
+                  <p className="mt-2 text-[10.5px] font-medium uppercase tracking-[0.42em] text-mist">
                     {site.discipline}
                   </p>
                 </div>
@@ -58,7 +58,7 @@ export function SiteFooter() {
               >
                 {site.phone}
               </a>
-              <p className="mt-2 text-sm text-dune">{site.modality}</p>
+              <p className="mt-2 text-sm text-mist">{site.modality}</p>
             </div>
 
             {/* Explore */}
@@ -87,7 +87,7 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="flex flex-wrap justify-between gap-x-8 gap-y-3 pt-6 text-[12.5px] text-dune">
+          <div className="flex flex-wrap justify-between gap-x-8 gap-y-3 pt-6 text-[12.5px] text-mist">
             <p>
               In crisis or need urgent help? This site isn&rsquo;t the right
               place. Please contact your local emergency services.

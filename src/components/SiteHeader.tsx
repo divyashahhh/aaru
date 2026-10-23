@@ -56,11 +56,11 @@ export function SiteHeader() {
 
   return (
     <header>
-      {/* Golden sage bar, then the ivory wordmark block and nav band */}
-      <div className="bg-sage-tint px-6 py-2.5">
-        <p className="flex flex-wrap items-center justify-center gap-x-3 text-center text-[11px] font-semibold uppercase tracking-[0.16em] text-moss md:text-xs md:tracking-[0.18em]">
+      {/* Olive bar, salt wordmark block, then the linen nav band (as the canvas) */}
+      <div className="bg-olive px-6 py-2.5">
+        <p className="flex flex-wrap items-center justify-center gap-x-3 text-center text-[11px] font-medium uppercase tracking-[0.16em] text-salt md:text-xs md:tracking-[0.18em]">
           <span>{announcement[0]}</span>
-          <span aria-hidden className="hidden text-fern sm:inline">
+          <span aria-hidden className="hidden text-salt/60 sm:inline">
             ·
           </span>
           <span className="hidden sm:inline">{announcement[1]}</span>
@@ -74,6 +74,7 @@ export function SiteHeader() {
         >
           <HeldMark
             id="held-header"
+            tone="badge"
             className="h-12 w-12 shrink-0 md:h-14 md:w-14"
           />
           <span className="text-balance text-center font-display text-[26px] leading-tight tracking-[0.01em] text-raisin md:text-[36px]">
@@ -84,7 +85,7 @@ export function SiteHeader() {
 
       <nav
         aria-label="Main"
-        className="border-y border-dune bg-salt px-4 md:px-12 lg:px-20"
+        className="border-y border-rule bg-linen px-4 md:px-12 lg:px-20"
       >
         <div
           ref={rowRef}
@@ -94,7 +95,7 @@ export function SiteHeader() {
           {/* The gliding highlight */}
           <span
             aria-hidden
-            className={`pointer-events-none absolute top-1/2 h-8 -translate-y-1/2 rounded-full border border-fern/35 bg-sage-tint/80 transition-[left,width,opacity] duration-300 ease-out motion-reduce:transition-none md:h-9 ${
+            className={`pointer-events-none absolute top-1/2 h-8 -translate-y-1/2 rounded-full border border-rule bg-salt shadow-[0_1px_2px_rgba(34,35,26,0.06)] transition-[left,width,opacity] duration-300 ease-out motion-reduce:transition-none md:h-9 ${
               highlight ? "opacity-100" : "opacity-0"
             }`}
             style={{ left: highlight?.left ?? 0, width: highlight?.width ?? 0 }}
@@ -118,8 +119,8 @@ export function SiteHeader() {
                   isCta
                     ? "font-semibold text-coffee"
                     : active
-                      ? "text-forest"
-                      : "text-label hover:text-forest"
+                      ? "text-raisin"
+                      : "text-label hover:text-raisin"
                 }`}
               >
                 {item.label}

@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Browser-tab version of the "Held" mark: no halo or leaf veins, which
-       vanish at 16px, and set slightly larger on a salt tile. -->
-  <rect width="64" height="64" rx="14" fill="#F5F0E7"/>
-  <g transform="translate(32 34) scale(1.12) translate(-32 -36)">
-    <circle cx="32" cy="23" r="7" fill="#C08A55"/>
-    <path d="M31.2 58 C18.4 56.4 7.6 44.6 11 19 C14.5 29.5 29.2 37.5 31.2 58 Z" fill="#734E30"/>
-    <path d="M32.8 58 C45.6 56.4 56.4 44.6 53 19 C49.5 29.5 34.8 37.5 32.8 58 Z" fill="#5B6443"/>
+  <!-- Browser-tab version of the "Held" badge: light leaves in a coffee disc,
+       without the halo or leaf veins, which vanish at 16px. -->
+  <circle cx="32" cy="32" r="32" fill="#734E30"/>
+  <g transform="translate(32 32) scale(0.84) translate(-32 -38.5)">
+    <circle cx="32" cy="23" r="7" fill="#E2B07A"/>
+    <path d="M31.2 58 C18.4 56.4 7.6 44.6 11 19 C14.5 29.5 29.2 37.5 31.2 58 Z" fill="#EDE4D7"/>
+    <path d="M32.8 58 C45.6 56.4 56.4 44.6 53 19 C49.5 29.5 34.8 37.5 32.8 58 Z" fill="#B3B194"/>
   </g>
 </svg>

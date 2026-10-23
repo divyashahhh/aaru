@@ -2,54 +2,38 @@
 
 @theme {
   /*
-    Every light shade shares the same warm, slightly golden undertone, so the
-    ivories, linens, apricots and sages sit together without fighting. The
-    green is a golden moss rather than a grey-green, to agree with the browns.
+    Palette from the redesign canvas: SALT / LINEN / OLIVE / RAISIN BLACK,
+    with coffee and clay as the warm accents.
   */
 
-  /* Warm neutrals, lightest to darkest */
-  --color-porcelain: #fbf8f2;
-  --color-salt: #f5f0e7;
-  --color-linen: #ece5d8;
-  --color-parchment: #ddd3c1;
-  --color-dune: #d4c2aa;
+  /* Neutrals */
+  --color-salt: #f1ebe4;
+  --color-linen: #e7dfd4;
+  --color-parchment: #dcd1c1;
+  --color-rule: #c9bca8;
+  --color-mist: #b5b09a;
+  --color-antique: #87826e;
 
-  /* Browns */
-  --color-blush: #f3e8da;
-  --color-apricot: #ead5bb;
-  --color-ember: #c49260;
-  --color-caramel: #b07b4c;
-  --color-clay: #a5744a;
+  /* Greens */
+  --color-olive: #464831;
+  --color-noir: #2e2f23;
+
+  /* Warm accents */
+  --color-ember: #c08a55;
+  --color-clay: #a87246;
   --color-coffee: #734e30;
-  --color-cocoa: #4f3524;
-  --color-umber: #2e2118;
-
-  /* Greens: golden sage to deep moss, echoing the logo's leaf */
-  --color-sage-tint: #e6e4cf;
-  --color-fern: #8e9268;
-  --color-moss: #5b6443;
-  --color-forest: #363b28;
 
   /* Text */
-  --color-raisin: #2a221a;
-  --color-ink: #2a221a;
-  --color-ink-muted: #5e5346;
+  --color-raisin: #22231a;
+  --color-ink: #22231a;
+  --color-ink-muted: #5a5647;
   /* A darker label tone for small/uppercase text that needs to stay legible */
-  --color-label: #4a3d2f;
-  --color-label-on-dark: #ece2d2;
+  --color-label: #4a3f2f;
+  --color-label-on-dark: #e4dccb;
 
-  /* Older names still used in a few places, mapped onto the palette above */
-  --color-cream: #f5f0e7;
-  --color-shell: #ece5d8;
-  --color-sand: #ddd3c1;
-  --color-antique: #8a7f6c;
-  --color-mist: #c2b49e;
-  --color-taupe: #8a7f6c;
-  --color-noir: #3a2c20;
-  --color-olive: #5b6443;
-  --color-sage: #5b6443;
-  --color-sage-deep: #363b28;
-  --color-terracotta: #734e30;
+  /* Older names still used by the icons, mapped onto the palette above */
+  --color-moss: #464831;
+  --color-cream: #f1ebe4;
 
   --font-display: var(--font-eb-garamond), Georgia, serif;
   --font-sans: var(--font-work-sans), system-ui, sans-serif;
@@ -174,6 +158,21 @@ body {
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+}
+
+/*
+  The home hero photograph bleeds into the brown panel beside it: faded from
+  the left on wide screens, from the top once the panels stack.
+*/
+.fade-left {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 30%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 30%);
+}
+@media (max-width: 767px) {
+  .fade-left {
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 18%);
+  }
 }
 
 /* ---------- Area icons (see AreaIcon.tsx) ---------- */
