@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
-import { Button, Eyebrow, Section } from "@/components/ui";
+import { Button, Eyebrow, Section, Tidy } from "@/components/ui";
 import {
   aboutOpening,
   journeyBoldPhrase,
@@ -35,7 +35,7 @@ export default function About() {
               className="a-rise mt-7 max-w-[31rem] font-display text-[22px] leading-[1.45] text-label md:text-[26px]"
               style={{ animationDelay: "200ms" }}
             >
-              {aboutOpening.body}
+              <Tidy>{aboutOpening.body}</Tidy>
             </p>
             <div className="a-rise mt-10" style={{ animationDelay: "300ms" }}>
               <Button href="/contact">Book a free consultation</Button>
@@ -78,14 +78,14 @@ export default function About() {
               <Reveal key={i} delay={i * 90}>
                 <p className="text-[17px] leading-[1.85] text-label">
                   {after === undefined ? (
-                    before
+                    <Tidy>{before}</Tidy>
                   ) : (
                     <>
                       {before}
                       <strong className="font-semibold text-raisin">
                         {journeyBoldPhrase}
                       </strong>
-                      {after}
+                      <Tidy>{after}</Tidy>
                     </>
                   )}
                 </p>
@@ -115,7 +115,7 @@ export default function About() {
                 {part.title}
               </h3>
               <p className="mt-4 text-base leading-[1.8] text-ink-muted">
-                {part.body}
+                <Tidy>{part.body}</Tidy>
               </p>
             </Reveal>
           ))}
@@ -135,7 +135,7 @@ export default function About() {
             {whoThisIsFor.map((paragraph, i) => (
               <Reveal key={i} delay={i * 100}>
                 <p className="text-[17px] leading-[1.85] text-label">
-                  {paragraph}
+                  <Tidy>{paragraph}</Tidy>
                 </p>
               </Reveal>
             ))}
@@ -166,7 +166,7 @@ export default function About() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="text-[17px] leading-relaxed text-raisin">
-                      {item}
+                      <Tidy>{item}</Tidy>
                     </span>
                   </span>
                 </Reveal>

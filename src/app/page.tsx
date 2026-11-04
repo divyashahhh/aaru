@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { AreaIcon } from "@/components/AreaIcon";
 import { Reveal } from "@/components/Reveal";
-import { Button, Eyebrow, Section } from "@/components/ui";
+import { Button, Eyebrow, Section, Tidy } from "@/components/ui";
 import {
   areasIWorkWith,
   closing,
@@ -32,7 +32,7 @@ export default function Home() {
         >
           <div className="w-full min-w-0 max-w-[36rem]">
             {/* Solid and pulsing so it's the first thing the eye lands on */}
-            <span className="a-rise inline-flex items-center gap-3 rounded-full bg-salt px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-coffee shadow-lg shadow-black/25 ring-4 ring-ember/35">
+            <span className="a-rise inline-flex items-center gap-3 whitespace-nowrap rounded-full bg-salt px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] max-[374px]:gap-2 max-[374px]:px-4 max-[374px]:text-[10.5px] max-[374px]:tracking-[0.1em] text-coffee shadow-lg shadow-black/25 ring-4 ring-ember/35">
               <span className="relative flex h-2.5 w-2.5 shrink-0">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ember opacity-75" />
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-ember" />
@@ -41,41 +41,26 @@ export default function Home() {
             </span>
 
             <h1
-              className="a-rise mt-7 font-display text-[2.75rem] leading-[1.04] text-salt md:text-6xl lg:text-[68px]"
+              className="a-rise mt-7 font-display text-[2.5rem] leading-[1.08] text-salt md:text-5xl lg:text-[56px]"
               style={{ animationDelay: "120ms" }}
             >
-              {hero.headline}
+              <Tidy>{hero.headline}</Tidy>
             </h1>
 
             <p
-              className="a-rise mt-6 text-left text-[14.5px] font-medium leading-relaxed tracking-[0.03em] text-ember"
+              className="a-rise mt-6 text-left text-[14.5px] font-medium hyphens-none max-[374px]:text-[13px] leading-relaxed tracking-[0.03em] text-ember"
               style={{ animationDelay: "200ms" }}
             >
-              {heroPhrases.map((phrase, i) => (
-                <span key={phrase}>
-                  <span className="whitespace-nowrap">{phrase}</span>
-                  {/* Real spaces either side so the line can wrap here */}
-                  {i < heroPhrases.length - 1 ? (
-                    <>
-                      {" "}
-                      <span aria-hidden className="px-1 text-ember/60">
-                        ·
-                      </span>{" "}
-                    </>
-                  ) : null}
-                </span>
-              ))}
-            </p>
-
-            <p
-              className="a-rise mt-5 max-w-[30rem] text-lg leading-relaxed text-linen"
-              style={{ animationDelay: "280ms" }}
-            >
-              {hero.subtext}
+              {/* Stacked on phones and tablets, one dotted line above that */}
+              <span className="block xl:inline">{heroPhrases[0]}</span>
+              <span aria-hidden className="hidden px-2 text-ember/60 xl:inline">
+                ·
+              </span>
+              <span className="block xl:inline">{heroPhrases[1]}</span>
             </p>
 
             <div
-              className="a-rise mt-10 flex flex-wrap gap-3.5"
+              className="a-rise mt-9 flex flex-wrap gap-3.5"
               style={{ animationDelay: "360ms" }}
             >
               <Button href="/contact" variant="light">
@@ -106,14 +91,14 @@ export default function Home() {
           <Reveal>
             <Eyebrow>{welcome.heading}</Eyebrow>
             <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-[40px] md:leading-[1.2]">
-              {welcome.subhead}
+              <Tidy>{welcome.subhead}</Tidy>
             </h2>
           </Reveal>
           <Reveal delay={120} className="md:border-l md:border-rule md:pl-12">
             <div className="space-y-5">
               {welcome.paragraphs.map((paragraph, i) => (
                 <p key={i} className="text-[17px] leading-[1.8] text-label">
-                  {paragraph}
+                  <Tidy>{paragraph}</Tidy>
                 </p>
               ))}
             </div>
@@ -150,7 +135,7 @@ export default function Home() {
                   className="h-20 w-20 md:h-[5.5rem] md:w-[5.5rem]"
                 />
                 <h3 className="mt-5 max-w-[11rem] font-display text-lg leading-snug text-raisin md:text-[21px]">
-                  {area.label}
+                  <Tidy>{area.label}</Tidy>
                 </h3>
               </div>
             </Reveal>
@@ -191,11 +176,11 @@ export default function Home() {
               <span className="font-display text-[34px] leading-none text-clay">
                 {p.n}
               </span>
-              <h3 className="mt-4 font-display text-[26px] leading-snug text-raisin">
+              <h3 className="mt-4 font-display text-[23px] leading-snug text-raisin lg:text-[26px]">
                 {p.title}
               </h3>
               <p className="mt-2.5 text-[15.5px] leading-[1.75] text-ink-muted">
-                {p.body}
+                <Tidy>{p.body}</Tidy>
               </p>
             </Reveal>
           ))}
@@ -206,7 +191,7 @@ export default function Home() {
       <Section inner="max-w-3xl">
         <Reveal className="text-center">
           <p className="font-display text-[28px] leading-[1.25] text-raisin md:text-[42px]">
-            {closing}
+            <Tidy>{closing}</Tidy>
           </p>
           <div className="mt-10">
             <Button href="/contact">Get in touch</Button>

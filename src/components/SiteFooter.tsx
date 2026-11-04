@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { HeldMark } from "@/components/HeldMark";
+import { JaliMark } from "@/components/JaliMark";
+import { Tidy } from "@/components/ui";
 import { credentials, hero, nav, site } from "@/content/site";
 
 export function SiteFooter() {
@@ -14,8 +15,8 @@ export function SiteFooter() {
             {/* Brand */}
             <div>
               <div className="flex items-center gap-3">
-                <HeldMark
-                  id="held-footer"
+                <JaliMark
+                  id="jali-footer"
                   tone="dark"
                   className="h-12 w-12 shrink-0"
                 />
@@ -29,7 +30,7 @@ export function SiteFooter() {
                 </div>
               </div>
               <p className="mt-6 max-w-xs text-[14.5px] leading-relaxed text-parchment">
-                {hero.subtext}
+                <Tidy>{hero.subtext}</Tidy>
               </p>
             </div>
 
@@ -38,7 +39,9 @@ export function SiteFooter() {
               <p className={heading}>Credentials</p>
               <ul className="space-y-2.5 text-sm leading-snug text-parchment">
                 {credentials.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item}>
+                    <Tidy>{item}</Tidy>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -89,8 +92,10 @@ export function SiteFooter() {
 
           <div className="flex flex-wrap justify-between gap-x-8 gap-y-3 pt-6 text-[12.5px] text-mist">
             <p>
-              In crisis or need urgent help? This site isn&rsquo;t the right
-              place. Please contact your local emergency services.
+              <Tidy>
+                In crisis or need urgent help? This site isn’t the right place.
+                Please contact your local emergency services.
+              </Tidy>
             </p>
             <p>
               © {new Date().getFullYear()} {site.practice}

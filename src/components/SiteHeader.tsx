@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { HeldMark } from "@/components/HeldMark";
+import { JaliMark } from "@/components/JaliMark";
 import { announcement, nav, site } from "@/content/site";
 
 const links = [...nav, { href: "/contact", label: "Book a call" }];
@@ -52,7 +52,7 @@ export function SiteHeader() {
   }, [rest]);
 
   const link =
-    "relative z-10 px-2 py-4 text-[11px] font-medium uppercase tracking-[0.12em] transition-colors duration-300 md:px-4 md:py-[17px] md:text-[12.5px] md:tracking-[0.16em]";
+    "relative z-10 shrink-0 whitespace-nowrap px-1.5 py-4 text-[11px] font-medium uppercase tracking-[0.1em] transition-colors duration-300 max-[374px]:px-1 max-[374px]:text-[10px] max-[374px]:tracking-[0.05em] md:px-4 md:py-[17px] md:text-[12.5px] md:tracking-[0.16em]";
 
   return (
     <header>
@@ -72,9 +72,8 @@ export function SiteHeader() {
           href="/"
           className="mx-auto flex w-fit flex-wrap items-center justify-center gap-x-4 gap-y-2"
         >
-          <HeldMark
-            id="held-header"
-            tone="badge"
+          <JaliMark
+            id="jali-header"
             className="h-12 w-12 shrink-0 md:h-14 md:w-14"
           />
           <span className="text-balance text-center font-display text-[26px] leading-tight tracking-[0.01em] text-raisin md:text-[36px]">
@@ -85,12 +84,12 @@ export function SiteHeader() {
 
       <nav
         aria-label="Main"
-        className="border-y border-rule bg-linen px-4 md:px-12 lg:px-20"
+        className="border-y border-rule bg-linen px-3 md:px-12 lg:px-20"
       >
         <div
           ref={rowRef}
           onMouseLeave={rest}
-          className="relative mx-auto flex max-w-6xl flex-wrap items-center justify-between"
+          className="relative mx-auto flex max-w-6xl items-center justify-between"
         >
           {/* The gliding highlight */}
           <span

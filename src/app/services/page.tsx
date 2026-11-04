@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
-import { Button, Eyebrow, Section } from "@/components/ui";
+import { Button, Eyebrow, Section, Tidy } from "@/components/ui";
 import {
   areasOfInterest,
   ethics,
@@ -37,7 +37,7 @@ export default function Services() {
               className="a-rise mt-7 text-[17px] leading-[1.8] text-label"
               style={{ animationDelay: "200ms" }}
             >
-              {servicesIntro}
+              <Tidy>{servicesIntro}</Tidy>
             </p>
           </div>
           <div
@@ -64,7 +64,7 @@ export default function Services() {
             Who I work with
           </h2>
           <p className="mt-5 font-display text-[21px] leading-[1.45] text-label md:text-[25px]">
-            {forWhomIntro}
+            <Tidy>{forWhomIntro}</Tidy>
           </p>
         </Reveal>
 
@@ -82,7 +82,7 @@ export default function Services() {
               <div className="mt-4 space-y-3.5">
                 {group.paragraphs.map((paragraph, j) => (
                   <p key={j} className="text-base leading-[1.8] text-ink-muted">
-                    {paragraph}
+                    <Tidy>{paragraph}</Tidy>
                   </p>
                 ))}
               </div>
@@ -117,23 +117,23 @@ export default function Services() {
                     area.featured ? "text-salt" : "text-raisin"
                   }`}
                 >
-                  {area.title}
+                  <Tidy>{area.title}</Tidy>
                 </h3>
                 {area.subtitle ? (
                   <p className="mt-4 text-xs font-semibold uppercase tracking-[0.16em] text-parchment">
-                    {area.subtitle}
+                    <Tidy>{area.subtitle}</Tidy>
                   </p>
                 ) : null}
                 {area.intro ? (
                   <p className="mt-4 text-[15px] leading-[1.75] text-label">
-                    {area.intro}
+                    <Tidy>{area.intro}</Tidy>
                   </p>
                 ) : null}
               </div>
               <div className="space-y-4">
                 {area.paragraphs.map((paragraph, j) => (
                   <p key={j} className="text-[16.5px] leading-[1.8]">
-                    {paragraph}
+                    <Tidy>{paragraph}</Tidy>
                   </p>
                 ))}
               </div>
@@ -151,7 +151,7 @@ export default function Services() {
               What sessions cost
             </h2>
             <p className="mt-5 max-w-sm text-base leading-[1.75] text-ink-muted">
-              {feesIntro}
+              <Tidy>{feesIntro}</Tidy>
             </p>
           </Reveal>
 
@@ -163,7 +163,7 @@ export default function Services() {
                   className="flex items-baseline justify-between gap-6 border-b border-rule py-6"
                 >
                   <dt className="text-base text-raisin md:text-[17px]">
-                    {f.label}
+                    <Tidy>{f.label}</Tidy>
                   </dt>
                   <dd className="shrink-0 font-display text-[28px] leading-none text-coffee md:text-[32px]">
                     {f.price}
@@ -172,7 +172,7 @@ export default function Services() {
               ))}
             </dl>
             <p className="mt-6 text-[14.5px] leading-[1.7] text-ink-muted">
-              {feesNote}
+              <Tidy>{feesNote}</Tidy>
             </p>
           </Reveal>
         </div>
@@ -190,7 +190,7 @@ export default function Services() {
           {ethics.paragraphs.map((paragraph, i) => (
             <Reveal key={i} delay={i * 100}>
               <p className="text-[17px] leading-[1.85] text-label">
-                {paragraph}
+                <Tidy>{paragraph}</Tidy>
               </p>
             </Reveal>
           ))}
@@ -204,8 +204,10 @@ export default function Services() {
             Not sure where you fit?
           </h2>
           <p className="mt-5 text-lg leading-[1.75] text-parchment">
-            That is a common place to start. A short conversation usually makes
-            it clearer.
+            <Tidy>
+              That is a common place to start. A short conversation usually
+              makes it clearer.
+            </Tidy>
           </p>
           <div className="mt-9">
             <Button href="/contact" variant="light">

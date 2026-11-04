@@ -16,6 +16,23 @@ export function Eyebrow({
   );
 }
 
+/*
+  Keeps the last two words of a block together so no line ends up holding one
+  word alone. Used instead of text-wrap: pretty, which turns hyphenation off
+  in Safari and opens gaps in justified text.
+*/
+export function Tidy({ children }: { children: string }) {
+  const text = children.trim();
+  const at = text.lastIndexOf(" ", text.lastIndexOf(" ") - 1);
+  if (at < 0) return <>{text}</>;
+  return (
+    <>
+      {text.slice(0, at)}{" "}
+      <span className="whitespace-nowrap">{text.slice(at + 1)}</span>
+    </>
+  );
+}
+
 export function Section({
   children,
   className = "",

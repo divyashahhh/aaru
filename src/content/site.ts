@@ -13,14 +13,13 @@ export const site = {
   practitioner: "Aarushi Shah",
   initials: "AS",
   discipline: "Psychotherapy",
-  tagline: "A space that is truly yours.",
   location: "London",
-  modality: "In person in London and online",
+  modality: "Online and in-person in London",
   email: "hello@aarushishahtherapy.com",
   phone: "+44 7837 210515",
   phoneHref: "tel:+447837210515",
-  /* Booking link for the Contact page, pending from client. */
-  calendlyUrl: "[Calendly link pending]",
+  /* Booking link for the Contact page */
+  calendlyUrl: "https://calendly.com/hello-aarushishahtherapy",
 };
 
 /* Contact is reached via the "Book a call" link at the end of the bar. */
@@ -32,7 +31,7 @@ export const nav = [
 ];
 
 export const announcement = [
-  "In person in London and online",
+  "Online and in-person in London",
   "Free 15-minute consultation",
 ];
 
@@ -53,15 +52,15 @@ export const credentials = [
 /* ---------- Homepage ---------- */
 
 export const hero = {
-  headline: "A space that is truly yours",
+  headline: "Therapy for adolescents and adults from all backgrounds",
+  /* No longer shown in the hero; still the footer's one-line description. */
   subtext:
     "Therapy for adolescents and adults from all backgrounds, offered online and in person.",
 };
 
 export const heroPhrases = [
   "50-minute sessions",
-  "In-person in London",
-  "Online internationally where possible",
+  "Online and in-person in London",
 ];
 
 export const multilingualTeaser =

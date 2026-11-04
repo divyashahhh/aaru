@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Eyebrow, Section } from "@/components/ui";
+import { Eyebrow, Section, Tidy } from "@/components/ui";
 import { contactHeading, site } from "@/content/site";
 import { ContactForm } from "./ContactForm";
 
@@ -18,19 +18,20 @@ export default function Contact() {
             className="a-rise mt-5 font-display text-[2.5rem] leading-[1.08] text-raisin md:text-[58px]"
             style={{ animationDelay: "100ms" }}
           >
-            {contactHeading}
+            <Tidy>{contactHeading}</Tidy>
           </h1>
 
           <div
             className="a-rise mt-10 flex flex-wrap items-center gap-x-7 gap-y-4"
             style={{ animationDelay: "200ms" }}
           >
-            {/* Calendly link pending from client (site.calendlyUrl) */}
             <a
               href={site.calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block rounded bg-raisin px-7 py-4 text-[12px] font-medium uppercase tracking-[0.14em] text-salt transition-colors hover:bg-noir md:text-[13px]"
             >
-              Book your 1st appointment
+              Book your free call
             </a>
             <a
               href="#enquiry"
@@ -43,7 +44,7 @@ export default function Contact() {
       </Section>
 
       <Section id="enquiry" className="bg-linen">
-        <div className="grid items-start gap-12 md:grid-cols-[1.4fr_1fr] md:gap-20">
+        <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-[1.4fr_1fr] md:gap-20">
           <ContactForm />
 
           <aside className="rounded-md bg-salt p-7 md:p-10">
@@ -65,11 +66,11 @@ export default function Contact() {
               </a>
               <p className="text-[15.5px] text-ink-muted">{site.modality}.</p>
               <p className="text-[15.5px] text-ink-muted">
-                Replies within two working days
+                <Tidy>Replies within two working days</Tidy>
               </p>
             </div>
             <p className="mt-7 text-xs font-semibold uppercase tracking-[0.16em] text-coffee">
-              Confidential &amp; BACP registered
+              <Tidy>Confidential &amp; BACP registered</Tidy>
             </p>
           </aside>
         </div>

@@ -1,10 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Browser-tab version of the "Held" badge: light leaves in a coffee disc,
-       without the halo or leaf veins, which vanish at 16px. -->
-  <circle cx="32" cy="32" r="32" fill="#734E30"/>
-  <g transform="translate(32 32) scale(0.84) translate(-32 -38.5)">
-    <circle cx="32" cy="23" r="7" fill="#E2B07A"/>
-    <path d="M31.2 58 C18.4 56.4 7.6 44.6 11 19 C14.5 29.5 29.2 37.5 31.2 58 Z" fill="#EDE4D7"/>
-    <path d="M32.8 58 C45.6 56.4 56.4 44.6 53 19 C49.5 29.5 34.8 37.5 32.8 58 Z" fill="#B3B194"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Browser-tab version of the "Jali" badge: a much coarser lattice, because
+       the full star pattern closes up at 16px. -->
+  <circle cx="50" cy="50" r="50" fill="#734E30"/>
+  <g transform="translate(50 50) scale(0.8) translate(-50 -53)">
+    <clipPath id="jali-tab"><path d="M20 88V44A30 30 0 0 1 80 44V88Z"/></clipPath>
+    <path d="M20 88V44A30 30 0 0 1 80 44V88Z" fill="#E2B07A"/>
+    <g clip-path="url(#jali-tab)" fill="none" stroke="#734E30" stroke-width="4.5">
+      <path d="M50 14V88M35 14V88M65 14V88"/>
+      <path d="M20 73H80M20 58H80M20 43H80M20 28H80"/>
+    </g>
+    <path d="M20 88V44A30 30 0 0 1 80 44V88Z" fill="none" stroke="#F1EBE4" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M10 89H90" stroke="#C4C2A6" stroke-width="6" stroke-linecap="round"/>
   </g>
 </svg>
