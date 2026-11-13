@@ -58,8 +58,12 @@ export const hero = {
     "Therapy for adolescents and adults from all backgrounds, offered online and in person.",
 };
 
+/* Line under the hero headline */
+export const heroLead =
+  "With particular experience in culture, identity and family.";
+
 export const heroPhrases = [
-  "50-minute sessions",
+  "Available in English, Hindi/Urdu and Gujarati",
   "Online and in-person in London",
 ];
 
@@ -142,7 +146,7 @@ export const sessionsFeel = [
 ];
 
 export const whoThisIsFor = [
-  "For some people, asking for help can bring up shame. You may feel like nothing is \"wrong enough\" to justify therapy or feel guilty for talking to someone outside your family about things you were taught to keep private. At its simplest, it is a human conversation, a place to be listened to, understood and taken seriously.",
+  'For some people, asking for help can bring up shame. You may feel like nothing is "wrong enough" to justify therapy or feel guilty for talking to someone outside your family about things you were taught to keep private. At its simplest, it is a human conversation, a place to be listened to, understood and taken seriously.',
   "If you are looking for a warm space where you do not have to explain or defend yourself, and where your culture and background are understood, you are very welcome to get in touch.",
 ];
 
@@ -186,7 +190,7 @@ export const areasOfInterest = [
     featured: true,
     paragraphs: [
       "There can be something immediately reassuring about hearing your own language in the therapy room. Sometimes, a little of the anxiety drops before the conversation has even properly begun.",
-      "In multilingual therapy, you do not have to constantly search for the \"right\" English word or monitor how your words might be understood.",
+      'In multilingual therapy, you do not have to constantly search for the "right" English word or monitor how your words might be understood.',
       "Sessions are available in English, Hindi/Urdu and Gujarati, and you are welcome to move between languages naturally. The aim is for you to bring as much of yourself into the room as possible.",
     ],
   },
@@ -195,7 +199,7 @@ export const areasOfInterest = [
     intro:
       "Changes in our bodies can affect far more than our physical health. PMS, PCOS, endometriosis, pregnancy and the postpartum period, maternal mental health, fertility experiences and menopause can overlap with changes in mood, identity, relationships, confidence and how at home you feel in your own body.",
     paragraphs: [
-      "There is still far too little space for women to talk openly about these experiences without being undermined or accused of exaggerating. You may even find yourself questioning whether what you are feeling is \"real enough\" to deserve support.",
+      'There is still far too little space for women to talk openly about these experiences without being undermined or accused of exaggerating. You may even find yourself questioning whether what you are feeling is "real enough" to deserve support.',
       "I do not provide medical diagnosis or treatment. What I can offer is a space to make sense of what is happening emotionally alongside what is happening physically, to talk about anger, grief, fear, exhaustion, changes in sexuality or identity, resentment, uncertainty, or anything else that may come with it.",
     ],
   },
@@ -224,4 +228,5 @@ export const ethics = {
 
 /* ---------- Contact ---------- */
 
-export const contactHeading = "Book a free 15-minute call to talk things through";
+export const contactHeading =
+  "Book a free 15-minute call to talk things through";

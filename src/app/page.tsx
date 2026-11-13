@@ -6,6 +6,7 @@ import {
   areasIWorkWith,
   closing,
   hero,
+  heroLead,
   heroPhrases,
   multilingualTeaser,
   process,
@@ -48,15 +49,22 @@ export default function Home() {
             </h1>
 
             <p
+              className="a-rise mt-5 max-w-[30rem] text-lg leading-relaxed text-linen md:text-xl"
+              style={{ animationDelay: "160ms" }}
+            >
+              <Tidy>{heroLead}</Tidy>
+            </p>
+
+            <p
               className="a-rise mt-6 text-left text-[14.5px] font-medium hyphens-none max-[374px]:text-[13px] leading-relaxed tracking-[0.03em] text-ember"
               style={{ animationDelay: "200ms" }}
             >
-              {/* Stacked on phones and tablets, one dotted line above that */}
-              <span className="block xl:inline">{heroPhrases[0]}</span>
-              <span aria-hidden className="hidden px-2 text-ember/60 xl:inline">
-                ·
-              </span>
-              <span className="block xl:inline">{heroPhrases[1]}</span>
+              {/* One line each: together they are too long for one row */}
+              {heroPhrases.map((phrase) => (
+                <span key={phrase} className="block">
+                  <Tidy>{phrase}</Tidy>
+                </span>
+              ))}
             </p>
 
             <div
