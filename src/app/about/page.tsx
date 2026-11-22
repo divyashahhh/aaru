@@ -48,13 +48,13 @@ export default function About() {
             style={{ animationDelay: "260ms" }}
           >
             <Image
-              src="/images/headshot-about.jpg"
+              src="/images/aarushi-portrait.jpg"
               alt="Portrait of Aarushi Shah"
-              width={550}
-              height={550}
+              width={1254}
+              height={1254}
               priority
               sizes="(min-width: 768px) 45vw, 100vw"
-              className="aspect-[4/5] w-full object-cover object-[50%_35%]"
+              className="aspect-[4/5] w-full object-cover object-[50%_40%]"
             />
           </div>
         </div>
@@ -143,13 +143,13 @@ export default function About() {
         </div>
       </Section>
 
-      {/* ---------- Qualifications & Registration ---------- */}
+      {/* ---------- Qualifications & Membership ---------- */}
       <Section>
         <div className="grid gap-12 md:grid-cols-[1fr_1.5fr] md:gap-20">
           <Reveal>
             <Eyebrow>Qualifications</Eyebrow>
             <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-[44px] md:leading-[1.15]">
-              Qualifications &amp; registration
+              <Tidy>Qualifications &amp; membership</Tidy>
             </h2>
           </Reveal>
           <div>

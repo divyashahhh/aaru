@@ -41,7 +41,7 @@ export const announcement = [
 */
 export const credentials = [
   "BA Psychology (Hons) & MA Psychodynamic Counselling & Psychotherapy",
-  "BACP Registered Member",
+  "BACP Member",
   "Regular clinical supervision",
   "Professional Indemnity Insurance",
   "Enhanced Child & Adult DBS",
@@ -153,7 +153,7 @@ export const whoThisIsFor = [
 export const qualifications = [
   "BA Psychology (Hons), Yale-NUS College, National University of Singapore",
   "MA Psychodynamic Counselling and Psychotherapy",
-  "BACP Registered Member",
+  "BACP Member",
 ];
 
 /* ---------- Services ---------- */

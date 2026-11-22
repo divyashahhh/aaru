@@ -22,7 +22,8 @@ export function Eyebrow({
   in Safari and opens gaps in justified text.
 */
 export function Tidy({ children }: { children: string }) {
-  const text = children.trim();
+  /* Only the end is trimmed: a leading space can be the gap after bold text */
+  const text = children.trimEnd();
   const at = text.lastIndexOf(" ", text.lastIndexOf(" ") - 1);
   if (at < 0) return <>{text}</>;
   return (
