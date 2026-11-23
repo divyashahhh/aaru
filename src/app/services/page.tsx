@@ -10,6 +10,7 @@ import {
   fees,
   forWhom,
   forWhomIntro,
+  insurance,
   servicesIntro,
   site,
 } from "@/content/site";
@@ -197,18 +198,31 @@ export default function Services() {
         </div>
       </Section>
 
+      {/* ---------- Private Health Insurance ---------- */}
+      <Section id="insurance" className="bg-linen" inner="max-w-[760px]">
+        <Reveal>
+          <Eyebrow>Insurance</Eyebrow>
+          <h2 className="mt-4 font-display text-3xl leading-snug text-raisin md:text-[44px] md:leading-[1.15]">
+            <Tidy>{insurance.title}</Tidy>
+          </h2>
+        </Reveal>
+        <div className="mt-9 space-y-5">
+          {insurance.paragraphs.map((paragraph, i) => (
+            <Reveal key={i} delay={i * 100}>
+              <p className="text-[17px] leading-[1.85] text-label">
+                <Tidy>{paragraph}</Tidy>
+              </p>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
       {/* ---------- Closing ---------- */}
       <Section className="bg-olive" inner="max-w-2xl">
         <Reveal className="text-center">
           <h2 className="font-display text-3xl leading-snug text-salt md:text-[46px] md:leading-[1.15]">
             Not sure where you fit?
           </h2>
-          <p className="mt-5 text-lg leading-[1.75] text-parchment">
-            <Tidy>
-              That is a common place to start. A short conversation usually
-              makes it clearer.
-            </Tidy>
-          </p>
           <div className="mt-9">
             <Button href="/contact" variant="light">
               Get in touch

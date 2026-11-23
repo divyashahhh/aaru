@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { JaliMark } from "@/components/JaliMark";
+import Image from "next/image";
 import { announcement, nav, site } from "@/content/site";
 
 const links = [...nav, { href: "/contact", label: "Book a call" }];
@@ -72,9 +72,14 @@ export function SiteHeader() {
           href="/"
           className="mx-auto flex w-fit flex-wrap items-center justify-center gap-x-4 gap-y-2"
         >
-          <JaliMark
-            id="jali-header"
-            className="h-12 w-12 shrink-0 md:h-14 md:w-14"
+          {/* Decorative: the practice name sits right beside it */}
+          <Image
+            src="/images/logo.png"
+            alt=""
+            width={256}
+            height={256}
+            priority
+            className="h-14 w-14 shrink-0 md:h-16 md:w-16"
           />
           <span className="text-balance text-center font-display text-[26px] leading-tight tracking-[0.01em] text-raisin md:text-[36px]">
             {site.wordmark}

@@ -41,7 +41,7 @@ export const announcement = [
 */
 export const credentials = [
   "BA Psychology (Hons) & MA Psychodynamic Counselling & Psychotherapy",
-  "BACP Member",
+  "BACP Individual Member (No: 01028731)",
   "Regular clinical supervision",
   "Professional Indemnity Insurance",
   "Enhanced Child & Adult DBS",
@@ -91,6 +91,12 @@ export const areasIWorkWith = [
   { label: "Reproductive & hormonal health", icon: "moon" },
 ] as const;
 
+/* Where sessions happen, shown above Multilingual Therapy on the homepage */
+export const locations = [
+  { label: "In-person therapy", detail: "At London Bridge or Shoreditch" },
+  { label: "Online therapy", detail: "On Google Meet" },
+];
+
 export const process = [
   {
     n: "01",
@@ -100,7 +106,7 @@ export const process = [
   {
     n: "02",
     title: "A first conversation",
-    body: "A free 15-minute call to talk about what brings you here and whether we are a good fit.",
+    body: "A free 15-minute consultation call to talk about what brings you here and whether we are a good fit. Therapy can be open-ended or short-term. We can discuss these specifics as well.",
   },
   {
     n: "03",
@@ -150,10 +156,24 @@ export const whoThisIsFor = [
   "If you are looking for a warm space where you do not have to explain or defend yourself, and where your culture and background are understood, you are very welcome to get in touch.",
 ];
 
+export const background = [
+  "I hold a BA in Psychology with Highest Distinction Honours from Yale-NUS College in Singapore, alongside an MA in Psychodynamic Counselling and Psychotherapy from Goldsmiths, University of London. My training in psychology has given me a strong foundation in understanding human behaviour, emotional development and psychological wellbeing, while my psychotherapy training has deepened my understanding of the unconscious processes, past experiences and relationships that shape who we are.",
+  "I've gained clinical experience across NHS Talking Therapies, schools and community counselling services, working with both adults and young people from diverse backgrounds. My work has involved supporting individuals through anxiety, relationship difficulties, grief and loss, family conflict, questions of identity and belonging, and significant life changes. I've also worked closely with South Asian communities, offering therapy in multiple languages and exploring the ways culture, family expectations and personal experiences can shape our emotional lives.",
+  "Alongside this, my clinical research into agency, cultural identity, shame and psychological help-seeking has deepened my interest in how our backgrounds and relationships influence the way we understand ourselves.",
+];
+
+export const insurance = {
+  title: "Private Health Insurance",
+  paragraphs: [
+    "I currently work on a self-funded basis and do not bill private health insurance providers directly. If you have private health insurance, you are welcome to check with your insurer whether sessions with an independent psychotherapist are eligible for reimbursement.",
+    "Payment for sessions is made directly by bank transfer, and I can provide receipts upon request. Please note that reimbursement is subject to your insurer's individual policy and requirements.",
+  ],
+};
+
 export const qualifications = [
   "BA Psychology (Hons), Yale-NUS College, National University of Singapore",
   "MA Psychodynamic Counselling and Psychotherapy",
-  "BACP Member",
+  "BACP Individual Member (No: 01028731)",
 ];
 
 /* ---------- Services ---------- */
@@ -210,7 +230,7 @@ export const feesIntro =
 
 export const fees = [
   { label: "Initial consultation (15 mins)", price: "Free" },
-  { label: "Individual session, in person or online (50 mins)", price: "£75" },
+  { label: "Individual session, in person or online (50 mins)", price: "£70" },
   { label: "Low-cost counselling for students (50 mins)", price: "£40" },
 ];
 

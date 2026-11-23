@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { JaliMark } from "@/components/JaliMark";
+import Image from "next/image";
 import { Tidy } from "@/components/ui";
 import { credentials, hero, nav, site } from "@/content/site";
 
@@ -15,10 +15,12 @@ export function SiteFooter() {
             {/* Brand */}
             <div>
               <div className="flex items-center gap-3">
-                <JaliMark
-                  id="jali-footer"
-                  tone="dark"
-                  className="h-12 w-12 shrink-0"
+                <Image
+                  src="/images/logo.png"
+                  alt=""
+                  width={256}
+                  height={256}
+                  className="h-14 w-14 shrink-0"
                 />
                 <div>
                   <p className="font-display text-[28px] leading-none text-salt">
@@ -62,6 +64,14 @@ export function SiteFooter() {
                 {site.phone}
               </a>
               <p className="mt-2 text-sm text-mist">{site.modality}</p>
+              <a
+                href="/privacy-policy.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block text-sm text-parchment underline decoration-parchment/40 underline-offset-4 transition-colors hover:text-ember"
+              >
+                Privacy Policy
+              </a>
             </div>
 
             {/* Explore */}

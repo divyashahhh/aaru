@@ -70,7 +70,7 @@ export default function Contact() {
               </p>
             </div>
             <p className="mt-7 text-xs font-semibold uppercase tracking-[0.16em] text-coffee">
-              <Tidy>Confidential &amp; BACP member</Tidy>
+              <Tidy>Confidential &amp; BACP Individual Member</Tidy>
             </p>
           </aside>
         </div>
