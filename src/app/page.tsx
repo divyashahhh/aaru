@@ -160,14 +160,16 @@ export default function Home() {
 
       {/* ---------- Where sessions happen ---------- */}
       <section className="px-6 py-12 md:px-12 md:py-16 lg:px-20">
-        <Reveal className="mx-auto grid max-w-4xl gap-8 text-center sm:grid-cols-2 sm:gap-6">
+        {/* One line each, as worded by the client: "Label: detail" */}
+        <Reveal className="mx-auto max-w-3xl space-y-3 text-center">
           {locations.map((place) => (
-            <div key={place.label}>
-              <Eyebrow>{place.label}</Eyebrow>
-              <p className="mt-3 font-display text-2xl leading-snug text-raisin md:text-[28px]">
-                <Tidy>{place.detail}</Tidy>
-              </p>
-            </div>
+            <p
+              key={place.label}
+              className="font-display text-[22px] leading-snug text-raisin md:text-[28px]"
+            >
+              <span className="text-coffee">{place.label}:</span>{" "}
+              <Tidy>{place.detail}</Tidy>
+            </p>
           ))}
         </Reveal>
       </section>

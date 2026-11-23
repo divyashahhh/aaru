@@ -93,7 +93,7 @@ export const areasIWorkWith = [
 
 /* Where sessions happen, shown above Multilingual Therapy on the homepage */
 export const locations = [
-  { label: "In-person therapy", detail: "At London Bridge or Shoreditch" },
+  { label: "In-person therapy", detail: "at London Bridge or Shoreditch" },
   { label: "Online therapy", detail: "On Google Meet" },
 ];
 
